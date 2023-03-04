@@ -1,8 +1,12 @@
 import './Home.css'
 import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import sous from '../../imgs/home/sousChef.png'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+
+    const navigate = useNavigate()
+
   return (
     <div className="home-ctn">
         <div className="home-left">
@@ -16,7 +20,7 @@ const Home = () => {
                 <div className='home-left-text'>
                     <h2>Let's Get Cooking</h2>
                     <h3>The one stop shop for all your favorite recipes</h3>
-                    <button>Find Recipes <span><BsFillArrowRightCircleFill /></span> </button>
+                    <button onClick={()=> navigate('/dashboard')}>Find Recipes <span><BsFillArrowRightCircleFill /></span> </button>
                 </div>
                 <div className='home-left-imgs'>
                     <div className='img-card sandwich'></div>
