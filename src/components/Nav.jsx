@@ -7,7 +7,7 @@ const Nav = () => {
       <nav className='links'>
         <h3 className='link-title'>Thrill RideShare</h3>
         <div>
-          <Link to="/" className="inactive" activeclassname="active">Home</Link>
+          <Link to="/dashboard" className="inactive" activeclassname="active">Home</Link>
           <Link to="/Favorites" className="inactive" activeclassname="active">Favorites</Link>
           <Link to="/About" className="inactive" activeclassname="active">About</Link>
           <Link to="/Login" className="inactive" activeclassname="active">Login</Link>
