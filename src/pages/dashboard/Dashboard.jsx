@@ -15,76 +15,81 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-
-            <div className='addCardDiv'>
-                <div className='addCard'>
-                    <div className='addCardPlus'>
-                        Plus
-                    </div>
+            <div className='trending-div-title'>Trending Now 🔥</div>
+            <div className='trending-div'>
+                <div className='createCardDiv'>
+                    <div className='createCard'>
                     <div className='addCardText'>
-                        Text
+                        <h3>Create a Recipe</h3>
+                        <h4>Easy to make</h4>
+                        <h4>Share with everyone</h4>
+                    </div>
+                    <div className='addCardPlus'>
+                        +
+                    </div>
                     </div>
                 </div>
-            </div>
-            <div className='trending-div-title'>Trending Now 🔥</div>
-
-            <div className='trending-div'>
                 <div className='trendingFoodCard'>
+                    <div className='trendingFoodCardImg'>
+                        <img src="" alt="" />
+                    </div>
                     <div className='trendingFoodCardText'>
                         <h5>Sandwich</h5>
                         <p>By: Tyler</p>
                     </div>
                 </div>
                 <div className='trendingFoodCard'>
-                <div className='trendingFoodCardText'>
+                    <div className='trendingFoodCardImg'>
+                        <img src="" alt="" />
+                    </div>
+                    <div className='trendingFoodCardText'>
                         <h5>Sandwich</h5>
                         <p>By: Tyler</p>
                     </div>
                 </div>
                 <div className='trendingFoodCard'>
-                <div className='trendingFoodCardText'>
+                    <div className='trendingFoodCardImg'>
+                        <img src="" alt="" />
+                    </div>
+                    <div className='trendingFoodCardText'>
                         <h5>Sandwich</h5>
                         <p>By: Tyler</p>
                     </div>
                 </div>
                 <div className='trendingFoodCard'>
-                <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
+                    <div className='trendingFoodCardImg'>
+                        <img src="" alt="" />
                     </div>
-                </div>
-                <div className='trendingFoodCard'>
-                <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-                <div className='trendingFoodCard'>
-                <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-                <div className='trendingFoodCard'>
-                <div className='trendingFoodCardText'>
+                    <div className='trendingFoodCardText'>
                         <h5>Sandwich</h5>
                         <p>By: Tyler</p>
                     </div>
                 </div>
             </div>
-
             <div className='categories'>
-            <h4>Categories</h4>
+                <h4>Categories</h4>
             </div>
-
             <div className='categoryCardDiv'>
-                <div className='categoryCard'>Bigger Food Card</div>
-                <div className='categoryCard'>Bigger Food Card</div>
-                <div className='categoryCard'>Bigger Food Card</div>
-                <div className='categoryCard'>Bigger Food Card</div>
-                <div className='categoryCard'>Bigger Food Card</div>
-                <div className='categoryCard'>Bigger Food Card</div>
-
+                <div className='categoryCard'>
+                    <h3>Steak</h3>
+                    <p>By: Tyler</p>
+                </div>
+                <div className='categoryCard'>
+                    <h3>Steak</h3>
+                    <p>By: Tyler</p>
+                </div>
+                <div className='categoryCard'>
+                    <h3>Steak</h3>
+                    <p>By: Tyler</p>
+                </div>
+                <div className='categoryCard'>
+                    <h3>Steak</h3>
+                    <p>By: Tyler</p>
+                </div>
+                <div className='categoryCard'>
+                    <h3>Steak</h3>
+                    <p>By: Tyler</p>
+                </div>
             </div>
         </div>
     )
