@@ -84,7 +84,7 @@ const Dashboard = () => {
                 <div className='categoryCard'>Bigger Food Card</div>
                 <div className='categoryCard'>Bigger Food Card</div>
                 <div className='categoryCard'>Bigger Food Card</div>
-
+                
             </div>
         </div>
     )
