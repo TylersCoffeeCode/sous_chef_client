@@ -1,6 +1,30 @@
 import './Dashboard.css'
+import MealCard from '../../components/MealCard'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Search from '../../components/Search'
+import axios from 'axios'
 
-const Dashboard = () => {
+const Dashboard = ({ meal }) => {
+
+    const [searchResults, setSearchResults] = useState([])
+    const [searched, toggleSearched] = useState(false)
+    const [searchQuery, setSearchQuery] = useState('')
+
+    const getSearchResults = async (e) => {
+        e.preventDefault()
+        const res = await axios.get(`/${searchQuery}`)
+        setSearchResults(res.data.meal)
+        toggleSearched(true)
+        setSearchQuery('')
+      }
+
+      const handleChange = (event) => {
+        setSearchQuery(event.target.value)
+      }
+
+    //   const newly_add = meal[meal.length - 1]
+
     return (
         <div className="dashboard-ctn">
             <div className='top-div'>
@@ -10,7 +34,26 @@ const Dashboard = () => {
                             icon |
                         </div>
                         <div className='search-bar'>
-                            Search For Recipes
+                        <div>
+                            <Search
+                            onSubmit={getSearchResults}
+                            value={searchQuery}
+                            onChange={handleChange}
+                            />
+                        </div>
+                        {searched && (
+                        <div>
+                            <h2>Search Results</h2>
+                            <section className="container-grid">
+                                {searchResults.map((result) => (
+                                <Link to={`details/${result._id}`} key={result._id}>
+                                <MealCard name={result.name} image={result.image} />
+                                </Link>
+                                ))}
+                            </section>
+                        </div>
+                        )}
+                            {/* Search For Recipes */}
                         </div>
                     </div>
                 </div>
