@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Search from '../../components/Search'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
 
 const Dashboard = () => {
@@ -11,11 +12,11 @@ const Dashboard = () => {
     const [searchResults, setSearchResults] = useState([])
     const [searched, toggleSearched] = useState(false)
     const [searchQuery, setSearchQuery] = useState('')
+    const navigate = useNavigate()
 
     const getSearchResults = async (e) => {
         e.preventDefault()
         const res = await axios.get(`http://localhost:3001/meals/${searchQuery}`)
-        setSearchResults(res.data)
         toggleSearched(true)
         setSearchQuery('')
     }
@@ -24,8 +25,8 @@ const Dashboard = () => {
     const [meal, setMeal] = useState([])
     const getMeals = async () => {
         try {
-            const res = await axios.get('http://localhost:3001/meals/')
-            setMeal(res.data)
+          const res = await axios.get('http://localhost:3001/meals/')
+          setMeal(res.data)
         } catch (err) {
             console.log(err)
         }
@@ -52,25 +53,24 @@ const Dashboard = () => {
                             icon |
                         </div>
                         <div className='search-bar'>
-                            <div>
-                                <Search
-                                    onSubmit={getSearchResults}
-                                    value={searchQuery}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            {searched && (
-                                <div>
-                                    <h2>Search Results</h2>
-                                    <section className="container-grid">
-                                        {searchResults.map((result) => (
-                                            <Link to={`/${result._id}`} key={result._id}>
-                                                <MealCard name={result.name} image={result.image} />
-                                            </Link>
-                                        ))}
-                                    </section>
-                                </div>
-                            )}
+                        <div>
+                            <Search
+                            onSubmit={()=>navigate('/results')}
+                            value={searchQuery}
+                            onChange={handleChange}
+                            />
+                        </div>
+                        {searched && (
+                        <div>
+                            <h2>Search Results</h2>
+                            <section className="container-grid">
+                                {searchResults.map((result) => (
+                                <Link to={`http://localhost:3000/meals/search/${result._id}`} key={result._id}>
+                                </Link>
+                                ))}
+                            </section>
+                        </div>
+                        )}
                             {/* Search For Recipes */}
                         </div>
                     </div>
@@ -92,9 +92,11 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                {meal.slice(0, 8).map((meal) => (
-                    <MealCard name={meal?.name} picture={meal?.picture} />
-                ))}
+                {meal.slice(0,8).map((meal) => (
+                     <Link to={`http://localhost:3000/meals/${meal.id}`} key={meal.id}>
+                        <MealCard name={meal?.name} picture={meal?.picture} />
+                    </Link>
+                    ))}
             </div>
             <div className='categories'>
                 <h4>Categories</h4>
