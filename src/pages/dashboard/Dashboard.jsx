@@ -1,11 +1,12 @@
 import './Dashboard.css'
 import MealCard from '../../components/MealCard'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext } from 'react'
 import { Link } from 'react-router-dom'
 import Search from '../../components/Search'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
+
 
 const Dashboard = () => {
 
@@ -13,14 +14,7 @@ const Dashboard = () => {
     const [searched, toggleSearched] = useState(false)
     const [searchQuery, setSearchQuery] = useState('')
     const navigate = useNavigate()
-
-    const getSearchResults = async (e) => {
-        e.preventDefault()
-        const res = await axios.get(`http://localhost:3001/meals/${searchQuery}`)
-        toggleSearched(true)
-        setSearchQuery('')
-    }
-
+    const userContext = createContext()
 
     const [meal, setMeal] = useState([])
     const getMeals = async () => {

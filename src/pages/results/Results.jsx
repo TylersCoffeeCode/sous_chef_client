@@ -16,7 +16,6 @@ const Results = () => {
     console.log(searchResults)
   }
 
-
   return (
     <div>Results</div>
   )
