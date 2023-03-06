@@ -34,7 +34,6 @@ function App() {
         
 
       {/* HELLO WORKING PAGE */}
-    <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
