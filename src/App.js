@@ -34,12 +34,11 @@ function App() {
         
 
       {/* HELLO WORKING PAGE */}
-    <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
           <Route path="/about" element={<About />} />
-          <Route path='/results' element={<Results/>} />
+          <Route path='/results/quary' element={<Results/>} />
           <Route
             path="/meals/:id"
             element={
