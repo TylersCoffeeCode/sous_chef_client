@@ -198,10 +198,11 @@
 
 .categories h4 {
     color: white;
+    margin-left: 1rem;
 }
 
 .categoryCardDiv {
-    background-color: sandybrown;
+    /* background-color: sandybrown; */
     width: 85%;
     height: 50%;
     display: flex;
@@ -214,7 +215,55 @@
     background-image: url('../../imgs/dashboard/steak.jpg');
     background-size: cover;
     height: 250px;
-    width: 400px;
+    width: 250px;
     border-radius: 10px;
     color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    box-shadow: #474747 6px 8px 8px;
+    transition: 0.5s;
 }
+
+.categoryCard:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.categoryCardText {
+    background-color: white;
+    /* background-color: #F26853; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+}
+
+.categoryCardText > h3, .categoryCardText > p {
+    /* background-color: darkcyan; */
+    width: 100%;
+    color: black;
+    margin-left: 1rem;
+}
+
+.categoryCardText h3 {
+    /* background-color: darkgoldenrod; */
+    font-size: 16px;
+}
+
+.categoryCardText p {
+    font-size: 10px;
+}
+
+.categoryCardText .cuisine {
+    width: 30%;
+    text-align: center;
+    background-color: #F26853;
+    color: white;
+    border-radius: 40px;
+}
+

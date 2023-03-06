@@ -17,11 +17,11 @@ const Dashboard = ({ meal }) => {
         setSearchResults(res.data.meal)
         toggleSearched(true)
         setSearchQuery('')
-      }
+    }
 
-      const handleChange = (event) => {
+    const handleChange = (event) => {
         setSearchQuery(event.target.value)
-      }
+    }
 
     //   const newly_add = meal[meal.length - 1]
 
@@ -34,25 +34,25 @@ const Dashboard = ({ meal }) => {
                             icon |
                         </div>
                         <div className='search-bar'>
-                        <div>
-                            <Search
-                            onSubmit={getSearchResults}
-                            value={searchQuery}
-                            onChange={handleChange}
-                            />
-                        </div>
-                        {searched && (
-                        <div>
-                            <h2>Search Results</h2>
-                            <section className="container-grid">
-                                {searchResults.map((result) => (
-                                <Link to={`details/${result._id}`} key={result._id}>
-                                <MealCard name={result.name} image={result.image} />
-                                </Link>
-                                ))}
-                            </section>
-                        </div>
-                        )}
+                            <div>
+                                <Search
+                                    onSubmit={getSearchResults}
+                                    value={searchQuery}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            {searched && (
+                                <div>
+                                    <h2>Search Results</h2>
+                                    <section className="container-grid">
+                                        {searchResults.map((result) => (
+                                            <Link to={`details/${result._id}`} key={result._id}>
+                                                <MealCard name={result.name} image={result.image} />
+                                            </Link>
+                                        ))}
+                                    </section>
+                                </div>
+                            )}
                             {/* Search For Recipes */}
                         </div>
                     </div>
@@ -62,14 +62,14 @@ const Dashboard = ({ meal }) => {
             <div className='trending-div'>
                 <div className='createCardDiv'>
                     <div className='createCard'>
-                    <div className='addCardText'>
-                        <h3>Create a Recipe</h3>
-                        <h4>Easy to make</h4>
-                        <h4>Share with everyone</h4>
-                    </div>
-                    <div className='addCardPlus'>
-                        +
-                    </div>
+                        <div className='addCardText'>
+                            <h3>Create a Recipe</h3>
+                            <h4>Easy to make</h4>
+                            <h4>Share with everyone</h4>
+                        </div>
+                        <div className='addCardPlus'>
+                            +
+                        </div>
                     </div>
                 </div>
                 <div className='trendingFoodCard'>
@@ -113,26 +113,63 @@ const Dashboard = ({ meal }) => {
                 <h4>Categories</h4>
             </div>
             <div className='categoryCardDiv'>
+
                 <div className='categoryCard'>
-                    <h3>Steak</h3>
-                    <p>By: Tyler</p>
+                    <div className='categoryCardText'>
+                        <p className='cuisine'>Cusine</p>
+                        <h3>Oven Baked Golden Crusted Steak</h3>
+                        <p>By: Tyler</p>
+                    </div>
                 </div>
+
                 <div className='categoryCard'>
-                    <h3>Steak</h3>
-                    <p>By: Tyler</p>
+                    <div className='categoryCardText'>
+                        <p className='cuisine'>Cusine</p>
+                        <h3>Oven Baked Golden Crusted Steak</h3>
+                        <p>By: Tyler</p>
+                    </div>
                 </div>
+
                 <div className='categoryCard'>
-                    <h3>Steak</h3>
-                    <p>By: Tyler</p>
+                    <div className='categoryCardText'>
+                        <p className='cuisine'>Cusine</p>
+                        <h3>Oven Baked Golden Crusted Steak</h3>
+                        <p>By: Tyler</p>
+                    </div>
                 </div>
+
                 <div className='categoryCard'>
-                    <h3>Steak</h3>
-                    <p>By: Tyler</p>
+                    <div className='categoryCardText'>
+                        <p className='cuisine'>Cusine</p>
+                        <h3>Oven Baked Golden Crusted Steak</h3>
+                        <p>By: Tyler</p>
+                    </div>
                 </div>
+
                 <div className='categoryCard'>
-                    <h3>Steak</h3>
-                    <p>By: Tyler</p>
+                    <div className='categoryCardText'>
+                        <p className='cuisine'>Cusine</p>
+                        <h3>Oven Baked Golden Crusted Steak</h3>
+                        <p>By: Tyler</p>
+                    </div>
                 </div>
+
+                <div className='categoryCard'>
+                    <div className='categoryCardText'>
+                        <p className='cuisine'>Cusine</p>
+                        <h3>Oven Baked Golden Crusted Steak</h3>
+                        <p>By: Tyler</p>
+                    </div>
+                </div>
+
+                <div className='categoryCard'>
+                    <div className='categoryCardText'>
+                        <p className='cuisine'>Cusine</p>
+                        <h3>Oven Baked Golden Crusted Steak</h3>
+                        <p>By: Tyler</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     )
