@@ -30,9 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        {/* <Nav /> */}
-      </header>
+        <Nav />
 
       {/* HELLO WORKING PAGE */}
 
