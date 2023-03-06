@@ -4,17 +4,18 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Search from '../../components/Search'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
 
     const [searchResults, setSearchResults] = useState([])
     const [searched, toggleSearched] = useState(false)
     const [searchQuery, setSearchQuery] = useState('')
+    const navigate = useNavigate()
 
     const getSearchResults = async (e) => {
         e.preventDefault()
         const res = await axios.get(`http://localhost:3001/meals/${searchQuery}`)
-        setSearchResults(res.data)
         toggleSearched(true)
         setSearchQuery('')
     }
@@ -25,6 +26,7 @@ const Dashboard = () => {
         try {
           const res = await axios.get('http://localhost:3001/meals/')
           setMeal(res.data)
+          console.log(res.data);
         } catch (err) {
           console.log(err)
         }
@@ -51,7 +53,7 @@ const Dashboard = () => {
                         <div className='search-bar'>
                         <div>
                             <Search
-                            onSubmit={getSearchResults}
+                            onSubmit={()=>navigate('/results')}
                             value={searchQuery}
                             onChange={handleChange}
                             />
@@ -61,8 +63,7 @@ const Dashboard = () => {
                             <h2>Search Results</h2>
                             <section className="container-grid">
                                 {searchResults.map((result) => (
-                                <Link to={`/${result._id}`} key={result._id}>
-                                <MealCard name={result.name} image={result.image} />
+                                <Link to={`http://localhost:3000/meals/search/${result._id}`} key={result._id}>
                                 </Link>
                                 ))}
                             </section>
@@ -88,7 +89,9 @@ const Dashboard = () => {
                     </div>
                 </div>
                 {meal.slice(0,8).map((meal) => (
+                     <Link to={`http://localhost:3000/meals/${meal.id}`} key={meal.id}>
                         <MealCard name={meal?.name} picture={meal?.picture} />
+                    </Link>
                     ))}
             </div>
             <div className='categories'>

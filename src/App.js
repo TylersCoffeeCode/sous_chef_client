@@ -8,6 +8,7 @@ import Nav from './components/Nav'
 import About from './pages/about/About'
 import MealDetails from './pages/mealDetails/MealDetails'
 import AddMeal from './pages/addMeal/AddMeal'
+import Results from './pages/results/Results'
 
 
 function App() {
@@ -35,18 +36,19 @@ function App() {
       </header>
 
       {/* HELLO WORKING PAGE */}
-
+    <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
-          <Route path="about" element={<About />} />
+          <Route path="/about" element={<About />} />
+          <Route path='/results' element={<Results/>} />
           <Route
-            path="meals/:id"
+            path="/meals/:id"
             element={
               <MealDetails meal={meal} getMeals={getMeals} />
             }
           />
-        <Route path="add/meal" element={<AddMeal getMeals={getMeals} />} />
+        <Route path="/add/meal" element={<AddMeal getMeals={getMeals} />} />
       </Routes>
 
 
