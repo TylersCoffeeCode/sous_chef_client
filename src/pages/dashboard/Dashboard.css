@@ -14,7 +14,14 @@
     height: 20%;
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
+    
+    background-color: #faf9f6;
+}
+
+.spacer {
+    background-color: #faf9f6;
+    height: 3rem;
+    width: 100%
 }
 
 .search-ctn {
