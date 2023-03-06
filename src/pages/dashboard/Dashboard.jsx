@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Search from '../../components/Search'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Nav from '../../components/Nav'
 
 const Dashboard = () => {
 
@@ -21,20 +22,19 @@ const Dashboard = () => {
     }
 
 
-      const [meal, setMeal] = useState([])
-      const getMeals = async () => {
+    const [meal, setMeal] = useState([])
+    const getMeals = async () => {
         try {
           const res = await axios.get('http://localhost:3001/meals/')
           setMeal(res.data)
-          console.log(res.data);
         } catch (err) {
-          console.log(err)
+            console.log(err)
         }
-      }
-    
-      useEffect(() => {
+    }
+
+    useEffect(() => {
         getMeals()
-      }, [])
+    }, [])
 
     const handleChange = (event) => {
         setSearchQuery(event.target.value)
@@ -44,6 +44,8 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-ctn">
+            <Nav />
+            <div className='spacer'></div>
             <div className='top-div'>
                 <div className='search-ctn'>
                     <div className='search-box'>
@@ -74,6 +76,8 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            <div className='spacer' style={{ marginBottom: "1rem" }}></div>
+            <div className='spacer2' style={{boxShadow: "#474747 0px -12px -4px ", width: "100%", height: "0.1rem"}}></div>
             <div className='trending-div-title'>Trending Now 🔥</div>
             <div className='trending-div'>
                 <div className='createCardDiv'>
