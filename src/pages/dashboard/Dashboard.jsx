@@ -79,8 +79,10 @@ const Dashboard = () => {
                     <p>By: Tyler</p>
                 </div>
                 <div className='categoryCard'>
+                    <div className='categoryCardText'>
                     <h3>Steak</h3>
                     <p>By: Tyler</p>
+                    </div>
                 </div>
                 <div className='categoryCard'>
                     <h3>Steak</h3>
