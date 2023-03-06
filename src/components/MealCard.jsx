@@ -1,12 +1,16 @@
+import '../pages/dashboard/Dashboard.css'
+
+
 const MealCard = (props) => {
 
     return (
-      <div className="meal-card" onClick={props.onClick}>
-        <div className="img-wrapper">
+      <div className="trendingFoodCard" onClick={props.onClick}>
+        <div className="trendingFoodCardImg">
           <img src={props.picture} alt="meal-picture" />
         </div>
-        <div className="info-wrapper">
-          <h3>{props.name}</h3>
+        <div className="trendingFoodCardText">
+          <h5>{props.name}</h5>
+          <p>By: </p>
           {/* <h2>{props.cuisine}</h2> */}
         </div>
       </div>

@@ -87,43 +87,9 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div className='trendingFoodCard'>
-                    <div className='trendingFoodCardImg'>
-                        <img src="" alt="" />
-                    </div>
-                    <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-                <div className='trendingFoodCard'>
-                    <div className='trendingFoodCardImg'>
-                        <img src="" alt="" />
-                    </div>
-                    <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-                <div className='trendingFoodCard'>
-                    <div className='trendingFoodCardImg'>
-                        <img src="" alt="" />
-                    </div>
-                    <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-                <div className='trendingFoodCard'>
-                    <div className='trendingFoodCardImg'>
-                        <img src="" alt="" />
-                    </div>
-                    <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                    <MealCard name={meal[0].name} image={meal[0].picture} />
-                </div>
+                {meal.slice(0,8).map((meal) => (
+                        <MealCard name={meal?.name} picture={meal?.picture} />
+                    ))}
             </div>
             <div className='categories'>
                 <h4>Categories</h4>
