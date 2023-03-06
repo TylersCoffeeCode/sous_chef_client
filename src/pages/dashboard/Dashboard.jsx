@@ -1,11 +1,11 @@
 import './Dashboard.css'
 import MealCard from '../../components/MealCard'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Search from '../../components/Search'
 import axios from 'axios'
 
-const Dashboard = ({ meal }) => {
+const Dashboard = () => {
 
     const [searchResults, setSearchResults] = useState([])
     const [searched, toggleSearched] = useState(false)
@@ -13,11 +13,26 @@ const Dashboard = ({ meal }) => {
 
     const getSearchResults = async (e) => {
         e.preventDefault()
-        const res = await axios.get(`/${searchQuery}`)
-        setSearchResults(res.data.meal)
+        const res = await axios.get(`http://localhost:3001/meals/${searchQuery}`)
+        setSearchResults(res.data)
         toggleSearched(true)
         setSearchQuery('')
     }
+
+
+      const [meal, setMeal] = useState([])
+      const getMeals = async () => {
+        try {
+          const res = await axios.get('http://localhost:3001/meals/')
+          setMeal(res.data)
+        } catch (err) {
+          console.log(err)
+        }
+      }
+    
+      useEffect(() => {
+        getMeals()
+      }, [])
 
     const handleChange = (event) => {
         setSearchQuery(event.target.value)
@@ -34,25 +49,25 @@ const Dashboard = ({ meal }) => {
                             icon |
                         </div>
                         <div className='search-bar'>
-                            <div>
-                                <Search
-                                    onSubmit={getSearchResults}
-                                    value={searchQuery}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            {searched && (
-                                <div>
-                                    <h2>Search Results</h2>
-                                    <section className="container-grid">
-                                        {searchResults.map((result) => (
-                                            <Link to={`details/${result._id}`} key={result._id}>
-                                                <MealCard name={result.name} image={result.image} />
-                                            </Link>
-                                        ))}
-                                    </section>
-                                </div>
-                            )}
+                        <div>
+                            <Search
+                            onSubmit={getSearchResults}
+                            value={searchQuery}
+                            onChange={handleChange}
+                            />
+                        </div>
+                        {searched && (
+                        <div>
+                            <h2>Search Results</h2>
+                            <section className="container-grid">
+                                {searchResults.map((result) => (
+                                <Link to={`/${result._id}`} key={result._id}>
+                                <MealCard name={result.name} image={result.image} />
+                                </Link>
+                                ))}
+                            </section>
+                        </div>
+                        )}
                             {/* Search For Recipes */}
                         </div>
                     </div>
@@ -72,42 +87,9 @@ const Dashboard = ({ meal }) => {
                         </div>
                     </div>
                 </div>
-                <div className='trendingFoodCard'>
-                    <div className='trendingFoodCardImg'>
-                        <img src="" alt="" />
-                    </div>
-                    <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-                <div className='trendingFoodCard'>
-                    <div className='trendingFoodCardImg'>
-                        <img src="" alt="" />
-                    </div>
-                    <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-                <div className='trendingFoodCard'>
-                    <div className='trendingFoodCardImg'>
-                        <img src="" alt="" />
-                    </div>
-                    <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-                <div className='trendingFoodCard'>
-                    <div className='trendingFoodCardImg'>
-                        <img src="" alt="" />
-                    </div>
-                    <div className='trendingFoodCardText'>
-                        <h5>Sandwich</h5>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
+                {meal.slice(0,8).map((meal) => (
+                        <MealCard name={meal?.name} picture={meal?.picture} />
+                    ))}
             </div>
             <div className='categories'>
                 <h4>Categories</h4>

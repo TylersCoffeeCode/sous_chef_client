@@ -111,11 +111,16 @@
 
 .trendingFoodCardImg {
     /* background-color: #F26853; */
-    background-image: url('../../imgs/home/sandwich.jpg');
-    background-size: cover;
     border-radius: 20px 20px 20px 20px;
     width: 100%;
     height: 150px;
+}
+
+.trendingFoodCardImg img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 .trendingFoodCardText {

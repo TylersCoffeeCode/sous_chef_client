@@ -16,8 +16,8 @@ function App() {
   const [meal, setMeal] = useState([])
   const getMeals = async () => {
     try {
-      const res = await axios.get('/')
-      setMeal(res.data.meals)
+      const res = await axios.get('http://localhost:3001/meals/')
+      setMeal(res.data)
     } catch (err) {
       console.log(err)
     }
@@ -41,7 +41,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />} />
           <Route path="about" element={<About />} />
           <Route
-            path="meals/details/:id"
+            path="meals/:id"
             element={
               <MealDetails meal={meal} getMeals={getMeals} />
             }
