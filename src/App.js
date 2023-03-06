@@ -38,7 +38,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
           <Route path="/about" element={<About />} />
-          <Route path='/results/quary' element={<Results/>} />
+          <Route path='/results/:query' element={<Results/>} />
           <Route
             path="/meals/:id"
             element={

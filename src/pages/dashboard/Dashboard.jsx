@@ -54,18 +54,6 @@ const Dashboard = () => {
                             onChange={handleChange}
                             />
                         </div>
-                        {searched && (
-                        <div>
-                            <h2>Search Results</h2>
-                            <section className="container-grid">
-                                {searchResults.map((result) => (
-                                <Link to={`http://localhost:3000/meals/search/${result._id}`} key={result._id}>
-                                </Link>
-                                ))}
-                            </section>
-                        </div>
-                        )}
-                            {/* Search For Recipes */}
                         </div>
                     </div>
                 </div>
