@@ -230,6 +230,7 @@
     overflow: hidden;
     box-shadow: #474747 6px 8px 8px;
     transition: 0.5s;
+    margin-right: 0.5rem;
 }
 
 .categoryCard:hover {
