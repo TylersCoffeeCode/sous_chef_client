@@ -49,16 +49,26 @@
 .search-icon {
     /* background-color: violet; */
     height: 80%;
-    width: 70px;
+    width: 60px;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.search button {
+    border: none;
+    height: 25px;
+    margin-left: 0.7rem;
+    padding: 0 0.3rem;
+    background-color: #F26853;
+    color: #fff;
+}
+
 .search-bar {
     /* background-color: rgb(49, 49, 20); */
-    height: 80%;
-    width: 220px;
+    height: 70%;
+    width: 239px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -205,11 +215,48 @@
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .categories h4 {
+    /* background-color: #474747; */
     color: white;
     margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.categoriesTabs {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #ABC9D5; */
+    width: 85%;
+}
+
+.categories h5 {
+    margin-left: 1rem;
+    margin-right: 3rem;
+    /* background-color: #ABC9D5; */
+    width: 100px;
+    height: 30px;
+    transition: 0.5s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categories h5:hover {
+    background-color: white;
+}
+
+.cuisineTabs:hover {
+    box-shadow: inset 100px 0 0 #fff;
+    
+}
+
+.activeCuisineTab {
+    background-color: white;
+    color: #F26853;
 }
 
 .categoryCardDiv {
