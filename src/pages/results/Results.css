@@ -1,0 +1,155 @@
+.result-ctn {
+    /* background-color: aqua; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.searchCtn {
+    /* background-color: darkgoldenrod; */
+    width: 50%;
+    height: 30%;
+}
+
+.resultsLogo {
+    /* background-color: darkturquoise; */
+    width: 30%;
+    height: 30%;
+   display: flex;
+   justify-content: center;
+}
+
+.resultsLogo img {
+    width: 200px;
+    height: 250px;
+}
+
+
+.searchTitle {
+    /* background-color: darkmagenta; */
+    width: 80%;
+    height: 4rem;
+}
+
+.searchTitle h2 {
+    font-size: 2rem;
+}
+
+.searchBar {
+    /* background-color: darksalmon; */
+    width: 80%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+}
+
+.searchBar > .search {
+    /* background-color: dimgray; */
+    width: 80%;
+    height: 50px;
+    display: flex;
+}
+
+.searchBar > .search input {
+    width: 80%;
+    min-width: 200px;
+    height: 100%;
+    border: #53ddf2 1.5px solid;
+    border-radius: 5px;
+    text-indent: 1rem;
+    font-size: 1.2rem;
+}
+
+.searchBar > .search button {
+    height: 100%;
+    width: 80px;
+    border-radius: 10px;
+}
+
+
+.resultsCtn {
+    /* background-color: darkkhaki; */
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.resultsTitle {
+    /* background-color: beige; */
+    font-size: 2rem;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.resultsCards {
+    /* background-color: darkslategrey; */
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.resultsCards > .categoryCard {
+    width: 400px;
+    height: 300px;
+    margin-right: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #06C167;
+}
+
+.resultCard {
+    width: 400px;
+    height: 300px;
+    background-color: #06C167;
+    margin-right: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px 20px 20px 20px;
+    overflow: hidden;
+    box-shadow: #474747 6px 8px 8px;
+    transition: 0.5s;
+}
+
+.resultCard img {
+    width: 100%;
+    height: 180px;
+}
+
+
+.resultsCards > .resultCard > .categoryCardText > .mealType,
+.resultsCards > .resultCard > .categoryCardText > .dietType
+{
+    width: 25%;
+    text-align: center;
+    background-color: #53ddf2;
+    color: white;
+    border-radius: 40px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+.resultsCards > .resultCard > .categoryCardText > .mealType {
+    background-color: #53ddf2;
+}
+
+.resultsCards > .resultCard > .categoryCardText > .dietType {
+    background-color: #06C167;
+}
+
+
+
+

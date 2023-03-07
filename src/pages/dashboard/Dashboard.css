@@ -270,7 +270,7 @@
 
 .categoryCard {
     background-color: darkorchid;
-    background-image: url('../../imgs/dashboard/steak.jpg');
+    /* background-image: url('../../imgs/dashboard/steak.jpg'); */
     background-size: cover;
     height: 250px;
     width: 250px;
@@ -319,10 +319,15 @@
 }
 
 .categoryCardText .cuisine {
-    width: 30%;
+    width: 25%;
     text-align: center;
     background-color: #F26853;
     color: white;
     border-radius: 40px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
 }
 
