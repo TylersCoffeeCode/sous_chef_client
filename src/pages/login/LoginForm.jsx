@@ -1,7 +1,21 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const LoginForm = ({toggleForm}) => {
+
+    const loginUser = async (data) => {
+        try {
+            console.log(data)
+            const res = await axios.post('http://localhost:3001/users/login', data)
+            console.log(res);
+            navigate('/dashboard')
+            return res.data
+        } catch (error) {
+            console.log(error);
+            throw error
+        }
+    }
 
     let navigate = useNavigate()
     const initialState = {
@@ -16,8 +30,11 @@ const LoginForm = ({toggleForm}) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
         console.log('hi');
+        e.preventDefault()
+        loginUser(formValues)
+        setFormValues(initialState)
     }
 
 

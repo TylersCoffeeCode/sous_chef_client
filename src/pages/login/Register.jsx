@@ -32,10 +32,11 @@ const Register = ({ toggleForm }) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        setFormValues(initialState)
         console.log('hi');
         RegisterUser(formValues)
-    }
-
+        navigate('/login')
+  }
 
 
     return (
@@ -60,7 +61,7 @@ const Register = ({ toggleForm }) => {
                     onChange={handleChange}
                     type="email"
                     name="email"
-                    value={formValues.email}
+                    defaultValue={formValues.email}
                     placeholder="Enter Email"
                     required
                 />
@@ -71,7 +72,7 @@ const Register = ({ toggleForm }) => {
                     onChange={handleChange}
                     type="password"
                     name="password"
-                    value={formValues.password}
+                    defaultValue={formValues.password}
                     placeholder="Create password"
                     required
                 />
