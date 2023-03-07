@@ -4,6 +4,7 @@ import axios from 'axios'
 import './MealDetails.css'
 import Nav from '../../components/Nav'
 import { Link } from 'react-router-dom'
+import Comments from '../../components/Comments'
 
 
 const MealDetails = ({ meal }) => {
@@ -67,6 +68,7 @@ const MealDetails = ({ meal }) => {
           </div>
         </div>
       </div>
+      <Comments meal_id={id} />
     </div>
   )
 }
