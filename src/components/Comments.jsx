@@ -2,10 +2,9 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import '../App.css'
 
-const Comment = ({meal_id}) => {
+const Comment = ({mealId}) => {
   const cleanPost = {
     Comment: '',
-    rating: '3',
     name: '',
   }
 
@@ -19,7 +18,7 @@ const [hover, setHover] = useState(0);
 
 const getPosts = async () => {
   try {
-    const res = await axios.get(`/comments/${meal_id}`)
+    const res = await axios.get(`/comments/${mealId}`)
     setPost(res.data)
   } catch (err) {
     console.log(err)
@@ -33,7 +32,7 @@ useEffect((e) => {
 const handleSubmit = async (e) => {
   e.preventDefault()
   try {
-    const createNewPost = {...formValues, meal_id: meal_id}
+    const createNewPost = {...formValues, mealId: mealId}
     await axios.post(`/comments`, createNewPost)
     setFormValues(cleanPost)
     getPosts()
