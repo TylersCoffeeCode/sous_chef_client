@@ -16,6 +16,12 @@ const Dashboard = () => {
     const navigate = useNavigate()
     const userContext = createContext()
 
+    const [toggleTabs, setToggleTabs] = useState(1)
+
+    const tabChanger = (i) => {
+      setToggleTabs(i)
+    }
+
     const [meal, setMeal] = useState([])
     const getMeals = async () => {
         try {
@@ -44,7 +50,7 @@ const Dashboard = () => {
                 <div className='search-ctn'>
                     <div className='search-box'>
                         <div className='search-icon'>
-                            icon |
+                            🔎 |
                         </div>
                         <div className='search-bar'>
                         <div>
@@ -81,7 +87,16 @@ const Dashboard = () => {
                     ))}
             </div>
             <div className='categories'>
-                <h4>Categories</h4>
+                <h4>Categories |</h4>
+                <div className='categoriesTabs'>
+                <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1)}>Tab</h5>
+                <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2)}>Tab</h5>
+                <h5 className={toggleTabs === 3 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(3)}>Tab</h5>
+                <h5 className={toggleTabs === 4 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(4)}>Tab</h5>
+                <h5 className={toggleTabs === 5 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(5)}>Tab</h5>
+                <h5 className={toggleTabs === 6 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(6)}>Tab</h5>
+                <h5 className={toggleTabs === 7 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(7)}>Tab</h5>
+                </div>
             </div>
             <div className='categoryCardDiv'>
 

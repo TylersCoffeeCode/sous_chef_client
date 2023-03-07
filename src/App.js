@@ -34,7 +34,7 @@ function App() {
         
 
       {/* HELLO WORKING PAGE */}
-      <Routes>
+      <Routes className="Routes">
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard />} />
           <Route path="/about" element={<About />} />

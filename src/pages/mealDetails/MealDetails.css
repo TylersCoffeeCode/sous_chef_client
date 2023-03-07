@@ -1,0 +1,114 @@
+.mealDetailsCtn {
+    /* background-color: aquamarine; */
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mealDetailsLeft {
+    /* background-color: tomato; */
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+
+.mealDetailsLeft img {
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid black;
+}
+
+.backLink {
+    text-decoration: none;
+    color: #F26853;
+    transition: 0.5s;
+}
+
+
+
+.mealDetailsRight {
+    /* background-color: darkcyan; */
+    width: 50%;
+    height: 100%;
+}
+
+.backBtn {
+    /* background-color: darkmagenta; */
+    width: 10%;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    transition: 0.5s;
+}
+
+.backBtn p {
+    transition: 0.5s;
+}
+
+.backBtn p:hover {
+    box-shadow: inset 40px 0 0 #F26853;
+    color: white;
+}
+
+
+.mealNameDesc {
+    /* background-color: aliceblue; */
+    width: 90%;
+    height: 40%;
+    margin-left: 2rem;
+    margin-top: 8rem;
+}
+
+.mealNameDesc h1 {
+    margin-bottom: 1rem;
+}
+
+.mealTabCnt {
+    /* background-color: antiquewhite; */
+    width: 90%;
+    height: 30%;
+    margin-left: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.mealTabs {
+    background-color: white;
+    width: 30%;
+    height: 40px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.mealTabs:hover {
+    box-shadow: inset 200px 0 0 0 #F26853;
+}
+
+.activeTab {
+    background-color: #F26853;
+    color: white;
+}
+
+.mealTabTextCtn {
+    background-color: white;
+    height: 200px;
+    width: 100%;
+}
+
+.mealTabText {
+    display: none;
+}
+
+
+
+.activeText {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+}
