@@ -14,6 +14,7 @@ import Login from './pages/login/Login'
 
 function App() {
 
+  const [user, setUser] = useState(null)
 
   const [meal, setMeal] = useState([])
   const getMeals = async () => {
@@ -25,8 +26,30 @@ function App() {
     }
   }
 
+  const CheckSession = async () => {
+    try {
+      // Checks if the current token if it exists is valid
+      const res = await axios.get('http://localhost:3001/user/session')
+      return res.data
+    } catch (error) {
+      throw error
+    }
+  }
+  
+
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+
+
+
   useEffect(() => {
     getMeals()
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
   }, [])
 
 
@@ -44,7 +67,7 @@ function App() {
               <MealDetails meal={meal} getMeals={getMeals} />
             }/>
         <Route path="/add/meal" element={<AddMeal getMeals={getMeals} />} />
-        <Route path='/Login' element={<Login />} />
+        <Route path='/Login' element={<Login setUser={setUser} />} />
       </Routes>
 
 
