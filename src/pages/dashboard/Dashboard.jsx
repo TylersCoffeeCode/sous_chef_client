@@ -19,14 +19,14 @@ const Dashboard = () => {
     const [toggleTabs, setToggleTabs] = useState(1)
 
     const tabChanger = (i) => {
-      setToggleTabs(i)
+        setToggleTabs(i)
     }
 
     const [meal, setMeal] = useState([])
     const getMeals = async () => {
         try {
-          const res = await axios.get('http://localhost:3001/meals/')
-          setMeal(res.data)
+            const res = await axios.get('http://localhost:3001/meals/')
+            setMeal(res.data)
         } catch (err) {
             console.log(err)
         }
@@ -38,6 +38,10 @@ const Dashboard = () => {
 
     const handleChange = (event) => {
         setSearchQuery(event.target.value)
+    }
+
+    const createRecipe = () => {
+        navigate('/add/meal')
     }
 
     //   const newly_add = meal[meal.length - 1]
@@ -53,24 +57,24 @@ const Dashboard = () => {
                             🔎 |
                         </div>
                         <div className='search-bar'>
-                        <div>
-                            <Search
-                            onSubmit={()=>navigate(`/results/${searchQuery}`)}
-                            value={searchQuery}
-                            onChange={handleChange}
-                            />
-                        </div>
+                            <div>
+                                <Search
+                                    onSubmit={() => navigate(`/results/${searchQuery}`)}
+                                    value={searchQuery}
+                                    onChange={handleChange}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className='spacer' style={{ marginBottom: "1rem" }}></div>
-            <div className='spacer2' style={{boxShadow: "#474747 0px -12px -4px ", width: "100%", height: "0.1rem"}}></div>
+            <div className='spacer2' style={{ boxShadow: "#474747 0px -12px -4px ", width: "100%", height: "0.1rem" }}></div>
             <div className='trending-div-title'>Trending Now 🔥</div>
             <div className='trending-div'>
                 <div className='createCardDiv'>
                     <div className='createCard'>
-                        <div className='addCardText'>
+                        <div className='addCardText' onClick={() => createRecipe()}>
                             <h3>Create a Recipe</h3>
                             <h4>Easy to make</h4>
                             <h4>Share with everyone</h4>
@@ -80,22 +84,22 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                {meal.slice(0,8).map((meal) => (
-                     <Link to={`http://localhost:3000/meals/${meal.id}`} key={meal.id}>
+                {meal.slice(0, 8).map((meal) => (
+                    <Link to={`http://localhost:3000/meals/${meal.id}`} key={meal.id}>
                         <MealCard name={meal?.name} picture={meal?.picture} />
                     </Link>
-                    ))}
+                ))}
             </div>
             <div className='categories'>
                 <h4>Categories |</h4>
                 <div className='categoriesTabs'>
-                <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1)}>Tab</h5>
-                <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2)}>Tab</h5>
-                <h5 className={toggleTabs === 3 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(3)}>Tab</h5>
-                <h5 className={toggleTabs === 4 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(4)}>Tab</h5>
-                <h5 className={toggleTabs === 5 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(5)}>Tab</h5>
-                <h5 className={toggleTabs === 6 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(6)}>Tab</h5>
-                <h5 className={toggleTabs === 7 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(7)}>Tab</h5>
+                    <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1)}>Tab</h5>
+                    <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2)}>Tab</h5>
+                    <h5 className={toggleTabs === 3 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(3)}>Tab</h5>
+                    <h5 className={toggleTabs === 4 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(4)}>Tab</h5>
+                    <h5 className={toggleTabs === 5 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(5)}>Tab</h5>
+                    <h5 className={toggleTabs === 6 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(6)}>Tab</h5>
+                    <h5 className={toggleTabs === 7 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(7)}>Tab</h5>
                 </div>
             </div>
             <div className='categoryCardDiv'>

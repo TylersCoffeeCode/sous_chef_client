@@ -7,7 +7,8 @@ import LoginForm from './LoginForm'
 import Register from './Register'
 
 
-const Login = () => {
+const Login = ({setUser}) => {
+
 
 
   let navigate = useNavigate()
@@ -47,7 +48,7 @@ const Login = () => {
         <div className='form-header'>
           <img src={sous} alt="" />
         </div>
-        {form ? <Register toggleForm={toggleForm}/> : <LoginForm toggleForm={toggleForm}/>}
+        {form ? <Register toggleForm={toggleForm}/> : <LoginForm toggleForm={toggleForm} setUser={setUser}/>}
       </div>
     </div>
   )
