@@ -9,6 +9,7 @@ import About from './pages/about/About'
 import MealDetails from './pages/mealDetails/MealDetails'
 import AddMeal from './pages/addMeal/AddMeal'
 import Results from './pages/results/Results'
+import Login from './pages/login/Login'
 
 
 function App() {
@@ -39,13 +40,11 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path='/results/:query' element={<Results/>} />
-          <Route
-            path="/meals/:id"
-            element={
+          <Route path="/meals/:id" element={
               <MealDetails meal={meal} getMeals={getMeals} />
-            }
-          />
+            }/>
         <Route path="/add/meal" element={<AddMeal getMeals={getMeals} />} />
+        <Route path='/Login' element={<Login />} />
       </Routes>
 
 
