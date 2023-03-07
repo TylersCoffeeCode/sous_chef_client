@@ -46,13 +46,13 @@ const handleChange = (e) => {
 }
 
 const handleRemove = async (id) => {
-  await axios.delete(`/comments/${meal_id}/${id}`)
+  await axios.delete(`/comments/${mealId}/${id}`)
   getPosts()
 }
 
 const handleUpdate =  async (e) => {
   e.preventDefault()
-  await axios.put(`/comments/${meal_id}/${commentId}`, updatePost)
+  await axios.put(`/comments/${mealId}/${commentId}`, updatePost)
   setEditing(true)
   getPosts()
 }
@@ -76,7 +76,7 @@ return (
     (
       <form className="form"onSubmit={ handleSubmit }>
         <input type="text" onChange={handleChange} value={formValues.name} name={"name"} id='name' placeholder={'Name'} />
-        <div className="star-rating">
+        {/* <div className="star-rating">
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (
@@ -89,7 +89,7 @@ return (
           </button>
         );
       })}
-    </div>
+    </div> */}
         <br/>
         <textarea cols="40" rows="5" id='Comment' onChange={handleChange} value={formValues.Comment} name={"Comment"}  placeholder={'Comment'}></textarea>
         <br/>
@@ -98,7 +98,7 @@ return (
     ): (
       <form onSubmit={ handleUpdate }>
         <input type="text" onChange={updateHandleChange} value={updatePost?.name} name={"name"} id='name' placeholder={'Name'} />
-        <div className="star-rating">
+        {/* <div className="star-rating">
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (
@@ -111,7 +111,7 @@ return (
           </button>
         );
       })}
-    </div>
+    </div> */}
         <br/>
         <textarea cols="40" rows="5" id='Comment' onChange={updateHandleChange} value={updatePost?.Comment} name={"Comment"}  placeholder={'Comment'}></textarea>
         <br/>
