@@ -1,16 +1,25 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 
 
-const Register = ({toggleForm}) => {
+const Register = ({ toggleForm }) => {
 
-
+    const RegisterUser = async (data) => {
+        try {
+            console.log(data)
+            const res = await axios.post('http://localhost:3001/users/register', data)
+            return res.data
+        } catch (error) {
+            throw error
+        }
+    }
 
     let navigate = useNavigate()
+
     const initialState = {
-        name: '',
-        user: '',
+        username: '',
         email: '',
         password: '',
         confirmPassword: ''
@@ -21,8 +30,10 @@ const Register = ({toggleForm}) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
+        e.preventDefault()
         console.log('hi');
+        RegisterUser(formValues)
     }
 
 
@@ -33,13 +44,13 @@ const Register = ({toggleForm}) => {
                 <h1>Create Account</h1>
             </div>
             <div className="input-wrapper-create">
-                <label htmlFor="user"></label>
+                <label htmlFor="username"></label>
                 <input
                     onChange={handleChange}
-                    name="user"
-                    type="user"
+                    name="username"
+                    type="text"
                     placeholder="Create Username"
-                    value={formValues.user}
+                    defaultValue={formValues.username}
                     required
                 />
             </div>
@@ -70,8 +81,8 @@ const Register = ({toggleForm}) => {
                 <input
                     onChange={handleChange}
                     type="password"
-                    name="password"
-                    value={formValues.confirmPassword}
+                    name="confirmPassword"
+                    defaultValue={formValues.confirmPassword}
                     placeholder="Confirm password"
                     required
                 />
