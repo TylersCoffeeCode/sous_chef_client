@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
 import './Login.css'
 import sous from '../../imgs/home/sousChef.png'
+import LoginForm from './LoginForm'
+import Register from './Register'
 
 
 const Login = () => {
@@ -19,6 +21,12 @@ const Login = () => {
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
+  const [form,setForm] = useState(false)
+
+  const  toggleForm = () => {
+    setForm(!form)
   }
 
   // const handleSubmit = async (e) => {
@@ -39,48 +47,7 @@ const Login = () => {
         <div className='form-header'>
           <img src={sous} alt="" />
         </div>
-        <form className="col" onSubmit={''}>
-          <div className='header'>
-            <h1>Log in</h1>
-          </div>
-          <div className="input-wrapper-login">
-            <label htmlFor="email"></label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="Enter email"
-              value={formValues.email}
-              required
-            />
-          </div>
-          <div className="input-wrapper-login">
-            <label htmlFor="password"></label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={formValues.password}
-              placeholder="Enter password"
-              required
-            />
-          </div>
-          <div className='checkBoxDiv'>
-          <input type="checkbox" name="" className='checkBox'/>
-          <label htmlFor="checkbox"> Remember me</label>
-          </div>
-          <button
-            disabled={
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
-            }>
-            Sign In
-          </button>
-          <div className='createFormText'>
-            <p className='pCreate'>Not a user? <a>Sign up now</a></p> 
-          </div>
-        </form>
+        {form ? <Register toggleForm={toggleForm}/> : <LoginForm toggleForm={toggleForm}/>}
       </div>
     </div>
   )
