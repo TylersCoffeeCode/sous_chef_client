@@ -1,0 +1,14 @@
+.add-page-ctn {
+    background-color: darkcyan;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.add-page-div {
+    background-color: darkred;
+    width: 80%;
+    height: 50%;
+}
