@@ -19,6 +19,7 @@ const Dashboard = ({ user,setUser }) => {
 
     const tabChanger = (i) => {
         setToggleTabs(i)
+        
     }
 
     const [meal, setMeal] = useState([])
@@ -30,6 +31,20 @@ const Dashboard = ({ user,setUser }) => {
             console.log(err)
         }
     }
+
+    const [mealCuisine, setmealCuisine] = useState([])
+    const getmealCuisine = async () => {
+        try {
+            const res = await axios.get(`http://localhost:3001/meals/${mealCuisine}`)
+            console.log(res.data);
+            setmealCuisine(res.data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    useEffect(() => {
+        getmealCuisine()
+    }, [])
 
     useEffect(() => {
         getMeals()
@@ -51,6 +66,7 @@ const Dashboard = ({ user,setUser }) => {
             navigate('/add/meal')
         } else navigate('/Login')
     }
+
 
     //   const newly_add = meal[meal.length - 1]
 
@@ -101,8 +117,8 @@ const Dashboard = ({ user,setUser }) => {
             <div className='categories'>
                 <h4>Categories |</h4>
                 <div className='categoriesTabs'>
-                    <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1)}>Tab</h5>
-                    <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2)}>Tab</h5>
+                    <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1)}>American</h5>
+                    <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2)}>Mexican</h5>
                     <h5 className={toggleTabs === 3 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(3)}>Tab</h5>
                     <h5 className={toggleTabs === 4 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(4)}>Tab</h5>
                     <h5 className={toggleTabs === 5 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(5)}>Tab</h5>
