@@ -10,6 +10,7 @@ import MealDetails from './pages/mealDetails/MealDetails'
 import AddMeal from './pages/addMeal/AddMeal'
 import Results from './pages/results/Results'
 import Login from './pages/login/Login'
+import Favorites from './pages/favorites/Favorites';
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
             }/>
         <Route path="/add/meal" element={<AddMeal getMeals={getMeals} />} />
         <Route path='/Login' element={<Login setUser={setUser} />} />
+        <Route path='/favorites' element={<Favorites />} />
       </Routes>
 
 

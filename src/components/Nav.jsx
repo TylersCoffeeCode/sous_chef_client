@@ -11,7 +11,7 @@ const Nav = () => {
       </div>
       <div className='nav-list'>
         <Link to="/dashboard" className="inactive" activeclassname="active">Home</Link>
-        <Link to="/Favorites" className="inactive" activeclassname="active">Favorites</Link>
+        <Link to="/favorites" className="inactive" activeclassname="active">Favorites</Link>
         <Link to="/About" className="inactive" activeclassname="active">About</Link>
         <Link to="/Login" className="inactive" activeclassname="active">Login</Link>
       </div>
