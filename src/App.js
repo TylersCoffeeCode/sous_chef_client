@@ -61,7 +61,7 @@ function App() {
       {/* HELLO WORKING PAGE */}
       <Routes className="Routes">
         <Route path='/' element={<Home />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard' element={<Dashboard user={user} setUser={setUser} />} />
           <Route path="/about" element={<About />} />
           <Route path='/results/:query' element={<Results/>} />
           <Route path="/meals/:id" element={
