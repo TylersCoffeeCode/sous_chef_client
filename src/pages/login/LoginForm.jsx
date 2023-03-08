@@ -37,6 +37,7 @@ const LoginForm = ({toggleForm , setUser}) => {
         const payload=  loginUser(formValues)
         setFormValues(initialState)
         setUser(payload)
+        if (payload) { navigate('/dashboard')}
     }
 
 
