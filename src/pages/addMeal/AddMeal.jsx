@@ -6,8 +6,10 @@ const AddMeal = () => {
   
   const navigate = useNavigate()
 
+  let createdBy = localStorage.getItem('user_id')
+
   const initialState = {
-    createdby:'15',
+    createdby: `${createdBy}`,
     name: '',
     description: '',
     cooktime: '',

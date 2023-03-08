@@ -8,13 +8,12 @@ import { useNavigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
 
 
-const Dashboard = () => {
+const Dashboard = ({ user,setUser }) => {
 
     const [searchResults, setSearchResults] = useState([])
     const [searched, toggleSearched] = useState(false)
     const [searchQuery, setSearchQuery] = useState('')
     const navigate = useNavigate()
-    const userContext = createContext()
 
     const [toggleTabs, setToggleTabs] = useState(1)
 
@@ -40,15 +39,24 @@ const Dashboard = () => {
         setSearchQuery(event.target.value)
     }
 
+    const handleLogOut = () => {
+        
+        setUser(null)
+        
+        localStorage.clear()
+    }
+
     const createRecipe = () => {
-        navigate('/add/meal')
+        if (user) {
+            navigate('/add/meal')
+        } else navigate('/Login')
     }
 
     //   const newly_add = meal[meal.length - 1]
 
     return (
         <div className="dashboard-ctn">
-            <Nav />
+            <Nav user={user} handleLogOut={handleLogOut}/>
             <div className='spacer'></div>
             <div className='top-div'>
                 <div className='search-ctn'>
