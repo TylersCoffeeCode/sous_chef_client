@@ -335,7 +335,7 @@
 
 .categoryCardText .cuisine {
     width: auto;
-    padding: 0 0.15rem;
+    padding: 0 0.20rem;
     text-align: center;
     background-color: #F26853;
     color: white;
@@ -347,3 +347,7 @@
     font-size: 15px;
 }
 
+
+.categoryCardText .cuisine:nth-child(2) {
+   background-color: #53ddf2;
+}

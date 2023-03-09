@@ -9,7 +9,7 @@ const CategoryCard = (props) => {
                 </div>
                 <div className='categoryCardText'>
                     <p className='cuisine'>{props.cuisine}</p>
-                    <p className='cuisine'>{props.diet_type}</p>
+                    <p className='cuisine blue'>{props.diet_type}</p>
                     <h3>{props.name}</h3>
                     <p>By:</p>
                 </div>
