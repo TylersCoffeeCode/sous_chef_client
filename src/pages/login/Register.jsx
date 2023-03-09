@@ -35,8 +35,13 @@ const Register = ({ toggleForm }) => {
         setFormValues(initialState)
         console.log('hi');
         RegisterUser(formValues)
-        navigate('/login')
   }
+
+//   const checkUser = async (data) => {
+//     if (await axios.post('http://localhost:3001/users/login', data)) {
+//         console.log('it works!');
+//     }
+//   }
 
 
     return (
@@ -88,13 +93,13 @@ const Register = ({ toggleForm }) => {
                     required
                 />
             </div>
-            <button
+            <button onClick={() => checkUser()}
                 disabled={
                     !formValues.email ||
                     (!formValues.password &&
                         formValues.confirmPassword === formValues.password)
                 }>
-                Sign In
+                Create User
             </button>
             <div className='createFormText'>
                 <p className='pCreate'>Already a user? <a onClick={() => toggleForm()}>Sign in</a></p>
