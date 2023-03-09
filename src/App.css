@@ -64,3 +64,7 @@
     border-radius: 10px;
     color: #F26853;
 }
+
+a {
+    text-decoration: none;
+}
