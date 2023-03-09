@@ -1,3 +1,8 @@
+html {
+    overflow-x: hidden;
+}
+
+
 .dashboard-ctn {
     background-color: white;
     width: 100vw;
@@ -109,6 +114,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 
