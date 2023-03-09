@@ -141,7 +141,7 @@
 .createCardText h3{
     font-size: 25px;
     width: auto;
-    background-color: #F26853;
+    /* background-color: #F26853; */
     height: auto;
     display: flex;
     margin-top: 0.3rem;
