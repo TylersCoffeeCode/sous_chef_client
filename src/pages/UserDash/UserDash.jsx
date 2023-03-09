@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Client from '../../services/api'
 import MealCard from '../../components/MealCard'
+import './UserDash.css'
 
 
 const UserDash = () => {
@@ -39,7 +40,7 @@ const UserDash = () => {
   }
 
 
-  
+
 
 
 
@@ -51,18 +52,20 @@ const UserDash = () => {
 
 
   return (
-    <div>
+    <div className='meal-ctn'>
       <h1>Welcome {greet} </h1>
       <div>
         <h3>Your Meals</h3>
         {userMeals.map((meal) => (
-          <div key={meal.id}>
+          <div className='.meal-div-card-ctn ' key={meal.id}>
             {console.log(meal)}
-            <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby} />
-            <button onClick={() => handleDelete(meal.id)}>Delete Meal</button>
-            <Link to={`/edit`} state={{meal: meal}} >
-            <button >Edit Meal</button>
-            </Link>
+            <div className='meal-div'>
+              <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby} />
+              <button onClick={() => handleDelete(meal.id)}>Delete Meal</button>
+              <Link to={`/edit`} state={{ meal: meal }} >
+                <button >Edit Meal</button>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
