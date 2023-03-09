@@ -45,7 +45,7 @@ const Dashboard = ({ user, setUser }) => {
         }
     }
     useEffect(() => {
-        getmealCuisine(toggleTabs === 1 ? "America" : toggleTabs === 2 ? "Mexican" : toggleTabs === 3 ? "Italian" : "")
+        getmealCuisine(toggleTabs === 1 ? "American" : toggleTabs === 2 ? "Mexican" : toggleTabs === 3 ? "Italian" : toggleTabs === 4 ? "Asian" : toggleTabs === 5 ? "Greek" : toggleTabs === 6 ? "Brazilian" : toggleTabs === 7 ? "African" : "")
     }, [toggleTabs])
 
     useEffect(() => {
@@ -100,8 +100,8 @@ const Dashboard = ({ user, setUser }) => {
             <div className='trending-div-title'>Trending Now 🔥</div>
             <div className='trending-div'>
                 <div className='createCardDiv'>
-                    <div className='createCard'>
-                        <div className='addCardText' onClick={() => createRecipe()}>
+                    <div className='createCard'onClick={() => createRecipe()}>
+                        <div className='addCardText' >
                             <h3>Create a Recipe</h3>
                             <h4>Easy to make</h4>
                             <h4>Share with everyone</h4>
@@ -125,8 +125,8 @@ const Dashboard = ({ user, setUser }) => {
                     <h5 className={toggleTabs === 3 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(3, 'Italian')}>Italian</h5>
                     <h5 className={toggleTabs === 4 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(4, 'Asian')}>Asian</h5>
                     <h5 className={toggleTabs === 5 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(5, 'Greek')}>Greek</h5>
-                    <h5 className={toggleTabs === 6 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(6)}>Tab</h5>
-                    <h5 className={toggleTabs === 7 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(7)}>Tab</h5>
+                    <h5 className={toggleTabs === 6 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(6, 'Brazilian')}>Brazilian</h5>
+                    <h5 className={toggleTabs === 7 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(7, 'African')}>African</h5>
                 </div>
             </div>
             <div className='categoryCardDiv'>
