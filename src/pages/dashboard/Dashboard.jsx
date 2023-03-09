@@ -17,10 +17,11 @@ const Dashboard = ({ user,setUser }) => {
 
     const [toggleTabs, setToggleTabs] = useState(1)
 
-    const tabChanger = (i) => {
+    const tabChanger = (i, x) => {
         setToggleTabs(i)
-        
+        getmealCuisine(x)
     }
+
 
     const [meal, setMeal] = useState([])
     const getMeals = async () => {
@@ -33,18 +34,18 @@ const Dashboard = ({ user,setUser }) => {
     }
 
     const [mealCuisine, setmealCuisine] = useState([])
-    const getmealCuisine = async () => {
+    const getmealCuisine = async (x) => {
         try {
-            const res = await Client.get(`/meals/${mealCuisine}`)
-            console.log(res.data);
-            setmealCuisine(res.data)
+            const res = await Client.get(`/meals/type/${x}`)
+            setmealCuisine(res.data.meal)
+            console.log(mealCuisine);
         } catch (err) {
             console.log(err)
         }
     }
     useEffect(() => {
         getmealCuisine()
-    }, [])
+    }, [toggleTabs])
 
     useEffect(() => {
         getMeals()
@@ -117,8 +118,8 @@ const Dashboard = ({ user,setUser }) => {
             <div className='categories'>
                 <h4>Categories |</h4>
                 <div className='categoriesTabs'>
-                    <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1)}>American</h5>
-                    <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2)}>Mexican</h5>
+                    <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1, 'American')}>American</h5>
+                    <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2, 'Mexican')}>Mexican</h5>
                     <h5 className={toggleTabs === 3 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(3)}>Tab</h5>
                     <h5 className={toggleTabs === 4 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(4)}>Tab</h5>
                     <h5 className={toggleTabs === 5 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(5)}>Tab</h5>
@@ -126,7 +127,10 @@ const Dashboard = ({ user,setUser }) => {
                     <h5 className={toggleTabs === 7 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(7)}>Tab</h5>
                 </div>
             </div>
-            <div className='categoryCardDiv'>
+            {meal.map((card) => (
+                 <MealCard name={card?.name} picture={card?.picture} createdby={card?.createdby}/>
+            ))}
+            {/* <div className='categoryCardDiv'>
 
                 <div className='categoryCard'>
                     <div className='categoryCardText'>
@@ -184,7 +188,7 @@ const Dashboard = ({ user,setUser }) => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
         </div>
     )
 }
