@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import Client from '../../services/api'
 import MealCard from '../../components/MealCard'
 import './UserDash.css'
-
+import Nav from '../../components/Nav'
 
 const UserDash = () => {
 
@@ -52,20 +52,24 @@ const UserDash = () => {
 
 
   return (
-    <div className='meal-ctn'>
+    <div className='meal-ctn2'>
+      <Nav />
+      <div className='greeting'>
       <h1>Welcome {greet} </h1>
-      <div>
+      </div>
+      <div className='bigDiv2'>
         <h3>Your Meals</h3>
         {userMeals.map((meal) => (
-          <div className='.meal-div-card-ctn ' key={meal.id}>
-            {console.log(meal)}
-            <div className='meal-div'>
+          <div className='meal-div-card-ctn2 ' key={meal.id}>
+            {/* <div className='meal-div'> */}
               <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby} />
+              <div className="button">
               <button onClick={() => handleDelete(meal.id)}>Delete Meal</button>
               <Link to={`/edit`} state={{ meal: meal }} >
                 <button >Edit Meal</button>
               </Link>
-            </div>
+              </div>
+            {/* </div> */}
           </div>
         ))}
       </div>

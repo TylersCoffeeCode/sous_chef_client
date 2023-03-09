@@ -1,23 +1,22 @@
-.meal-ctn {
-  /* background-color: aqua; */
+.meal-ctn2 {
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: flex-start;
 }
 
-.meal-div {
-  /* background-color: bisque; */
-  width: 70%;
-  height: 80%;
+.meal-div2 {
+  background-color: bisque;
+  width: 250px;
+  height: 250px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
-.meal-div-title {
-  /* background-color: tomato; */
+.meal-div-title2 {
   border-radius: 50px;
   width: 32%;
   height: 15%;
@@ -27,12 +26,86 @@
   align-items: center;
 }
 
-.meal-div-card-ctn {
+.meal-div-card-ctn2 {
   background-color: white;
   border: 1px solid #53ddf2;
   box-shadow: #474747 6px 8px 10px;
-  height: 85%;
-  width: 100%;
-  border-radius: 15px;
+  height: 325px;
+  width: 325px;
+  border-radius: 20px 20px 15px 15px;
+}
 
+.meal-div-card-ctn2 >.trendingFoodCard{
+  margin: 0;
+  width: 100%;
+}
+
+.trendingFoodCard2 {
+  width:100%;
+  height: 80%;
+  margin:0;
+  
+}
+
+.trendingFoodCardImg2 {
+  height: 75%;
+  margin: 0;
+}
+
+.trendingFoodCardImg2 img {
+  width:100%;
+  height:100%;
+  margin: 0;
+}
+
+.trendingFoodCardText2 h5 {
+  font-size: 1.5rem;
+}
+
+.bigDiv2 {
+  width: 85%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around
+}
+.bigDiv2 h3 {
+  width: 100%;
+  text-align: center;
+}
+
+.greeting {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  
+}
+
+.button a {
+  width:320px;
+}
+
+.button button {
+  width: 100%;
+  height: 100%;
+  background-color: #f26853;
+  outline: none;
+  border:none;
+  margin-right: 10px;
+}
+
+.button:nth-child(1) {
+  width: 50%;
+  background-color: chartreuse;
 }
