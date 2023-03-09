@@ -6,9 +6,10 @@ import Search from '../../components/Search'
 import Client from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
+import CategoryCard from '../../components/CategoryCard'
 
 
-const Dashboard = ({ user,setUser }) => {
+const Dashboard = ({ user, setUser }) => {
 
     const [searchResults, setSearchResults] = useState([])
     const [searched, toggleSearched] = useState(false)
@@ -44,11 +45,12 @@ const Dashboard = ({ user,setUser }) => {
         }
     }
     useEffect(() => {
-        getmealCuisine()
+        getmealCuisine(toggleTabs === 1 ? "America" : toggleTabs === 2 ? "Mexican" : toggleTabs === 3 ? "Italian" : "")
     }, [toggleTabs])
 
     useEffect(() => {
         getMeals()
+        getmealCuisine("American")
     }, [])
 
     const handleChange = (event) => {
@@ -56,9 +58,9 @@ const Dashboard = ({ user,setUser }) => {
     }
 
     const handleLogOut = () => {
-        
+
         setUser(null)
-        
+
         localStorage.clear()
     }
 
@@ -73,7 +75,7 @@ const Dashboard = ({ user,setUser }) => {
 
     return (
         <div className="dashboard-ctn">
-            <Nav user={user} handleLogOut={handleLogOut}/>
+            <Nav user={user} handleLogOut={handleLogOut} />
             <div className='spacer'></div>
             <div className='top-div'>
                 <div className='search-ctn'>
@@ -111,7 +113,7 @@ const Dashboard = ({ user,setUser }) => {
                 </div>
                 {meal.slice(-8).reverse().map((meal) => (
                     <Link to={`http://localhost:3000/meals/${meal.id}`} key={meal.id}>
-                        <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby}    />
+                        <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby} />
                     </Link>
                 ))}
             </div>
@@ -120,19 +122,26 @@ const Dashboard = ({ user,setUser }) => {
                 <div className='categoriesTabs'>
                     <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1, 'American')}>American</h5>
                     <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2, 'Mexican')}>Mexican</h5>
-                    <h5 className={toggleTabs === 3 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(3)}>Tab</h5>
-                    <h5 className={toggleTabs === 4 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(4)}>Tab</h5>
-                    <h5 className={toggleTabs === 5 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(5)}>Tab</h5>
+                    <h5 className={toggleTabs === 3 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(3, 'Italian')}>Italian</h5>
+                    <h5 className={toggleTabs === 4 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(4, 'Asian')}>Asian</h5>
+                    <h5 className={toggleTabs === 5 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(5, 'Greek')}>Greek</h5>
                     <h5 className={toggleTabs === 6 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(6)}>Tab</h5>
                     <h5 className={toggleTabs === 7 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(7)}>Tab</h5>
                 </div>
             </div>
-            {meal.map((card) => (
-                 <MealCard name={card?.name} picture={card?.picture} createdby={card?.createdby}/>
-            ))}
-            {/* <div className='categoryCardDiv'>
+            <div className='categoryCardDiv'>
 
-                <div className='categoryCard'>
+                {mealCuisine.map((card) => (
+                    <Link to={`http://localhost:3000/meals/${card.id}`} key={card.id}>
+                        <CategoryCard name={card.name} picture={card?.picture} createdby={card?.createdby} cuisine={card?.cuisine} diet_type={card?.diet_type}/>
+                    </Link>
+
+                ))}
+            </div>
+
+
+
+            {/* <div className='categoryCard'>
                     <div className='categoryCardText'>
                         <p className='cuisine'>Cusine</p>
                         <h3>Oven Baked Golden Crusted Steak</h3>
@@ -186,9 +195,8 @@ const Dashboard = ({ user,setUser }) => {
                         <h3>Oven Baked Golden Crusted Steak</h3>
                         <p>By: Tyler</p>
                     </div>
-                </div>
 
-            </div> */}
+            </div>  */}
         </div>
     )
 }
