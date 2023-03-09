@@ -18,7 +18,6 @@ const Dashboard = ({ user,setUser }) => {
     const [toggleTabs, setToggleTabs] = useState(1)
 
     const tabChanger = (i, x) => {
-        console.log(x);
         setToggleTabs(i)
         getmealCuisine(x)
     }
@@ -36,19 +35,17 @@ const Dashboard = ({ user,setUser }) => {
 
     const [mealCuisine, setmealCuisine] = useState([])
     const getmealCuisine = async (x) => {
-        console.log(x);
-        let cuisine = x
         try {
-            const res = await Client.get(`/meals/${mealCuisine}`)
-            console.log(res.data);
-            setmealCuisine(res.data)
+            const res = await Client.get(`/meals/type/${x}`)
+            setmealCuisine(res.data.meal)
+            console.log(mealCuisine);
         } catch (err) {
             console.log(err)
         }
     }
     useEffect(() => {
         getmealCuisine()
-    }, [])
+    }, [toggleTabs])
 
     useEffect(() => {
         getMeals()

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Client from '../../services/api'
 
 
@@ -16,8 +15,6 @@ const Register = ({ toggleForm }) => {
         }
     }
 
-    let navigate = useNavigate()
-
     const initialState = {
         username: '',
         email: '',
@@ -30,18 +27,24 @@ const Register = ({ toggleForm }) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
         setFormValues(initialState)
         console.log('hi');
-        RegisterUser(formValues)
+        await RegisterUser(formValues)
+        await checkUser(formValues)
   }
 
-//   const checkUser = async (data) => {
-//     if (await axios.post('http://localhost:3001/users/login', data)) {
-//         console.log('it works!');
-//     }
-//   }
+  const checkUser = async (data) => {
+    try {
+        const res = await Client.post('/users/login', data)
+        toggleForm()
+        return res.data
+    } catch (error) {
+        console.log(error);
+        throw error
+    }
+}
 
 
     return (
