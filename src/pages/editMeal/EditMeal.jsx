@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useLocation,useNavigate } from 'react-router-dom'
-import './EditMeal.css'
 import Nav from '../../components/Nav'
 import Client from '../../services/api'
 

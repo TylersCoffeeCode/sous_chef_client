@@ -25,7 +25,7 @@ const AddMeal = () => {
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value} = e.target;
     setFormValues({ ...formValues, [name]: value });
 
     if (name === 'name') {
@@ -43,8 +43,8 @@ const AddMeal = () => {
     }
 
     if (name === 'picture') {
-      setCreateCardText((prev) => ({ ...prev, picture: value }));
-      }
+      setCreateImage(value);
+    }
     
 
     if (name === 'description') {
@@ -162,10 +162,10 @@ const AddMeal = () => {
               <h3>{createCardText.title}</h3>
               <div className='createCategory'>
                 <h4>{createCardText.cuisine}</h4>
-                <h4 style={{ backgroundColor: '#53ddf2' }}>{createCardText.diet}</h4>
+                <h4 style={{ backgroundColor: '#53ddf2' }}>{createCardText.diet_type}</h4>
               </div>
               <p>{createCardText.cooktime}</p>
-              <p>{createCardText.mealtype}</p>
+              <p>{createCardText.meal_type}</p>
               <p>{createCardText.ingredients}</p>
             </div>
           </div>
