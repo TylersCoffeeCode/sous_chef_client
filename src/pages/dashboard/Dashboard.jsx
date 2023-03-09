@@ -3,7 +3,7 @@ import MealCard from '../../components/MealCard'
 import { useState, useEffect, createContext } from 'react'
 import { Link } from 'react-router-dom'
 import Search from '../../components/Search'
-import axios from 'axios'
+import Client from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
 
@@ -25,7 +25,7 @@ const Dashboard = ({ user,setUser }) => {
     const [meal, setMeal] = useState([])
     const getMeals = async () => {
         try {
-            const res = await axios.get('http://localhost:3001/meals/')
+            const res = await Client.get('/meals/')
             setMeal(res.data)
         } catch (err) {
             console.log(err)
@@ -35,7 +35,7 @@ const Dashboard = ({ user,setUser }) => {
     const [mealCuisine, setmealCuisine] = useState([])
     const getmealCuisine = async () => {
         try {
-            const res = await axios.get(`http://localhost:3001/meals/${mealCuisine}`)
+            const res = await Client.get(`/meals/${mealCuisine}`)
             console.log(res.data);
             setmealCuisine(res.data)
         } catch (err) {

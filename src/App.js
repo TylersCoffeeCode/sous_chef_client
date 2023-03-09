@@ -11,7 +11,7 @@ import Results from './pages/results/Results'
 import Login from './pages/login/Login'
 import Favorites from './pages/favorites/Favorites';
 import UserDash from './pages/UserDash/UserDash';
-
+import Client from '../../services/api'
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
   const [meal, setMeal] = useState([])
   const getMeals = async () => {
     try {
-      const res = await axios.get('http://localhost:3001/meals/')
+      const res = await Client.get('/meals')
       setMeal(res.data)
     } catch (err) {
       console.log(err)
@@ -30,7 +30,7 @@ function App() {
   const CheckSession = async () => {
     try {
       // Checks if the current token if it exists is valid
-      const res = await axios.get('http://localhost:3001/user/session')
+      const res = await Client.get('/user/session')
       return res.data
     } catch (error) {
       throw error

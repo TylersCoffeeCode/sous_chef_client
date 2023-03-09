@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import Client from '../../services/api'
 import MealCard from '../../components/MealCard'
 import { Link } from 'react-router-dom'
 
@@ -13,7 +13,7 @@ const UserDash = () => {
 
   const GetUser = async (data) => {
     try {
-      const res = await axios.get(`http://localhost:3001/users/get/${author}`, data)
+      const res = await Client.get(`/users/get/${author}`, data)
       setGreet(res.data.username)
     } catch (error) {
       throw error
@@ -22,7 +22,7 @@ const UserDash = () => {
 
   const getUserMeals = async () => {
     try {
-      const res = await axios.get(`http://localhost:3001/users/get/meals/${author}`)
+      const res = await Client.get(`/users/get/meals/${author}`)
       setUserMeals(res.data)
     } catch (error) {
       throw error
@@ -31,7 +31,7 @@ const UserDash = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/meals/${id}`)
+      await Client.delete(`/meals/${id}`)
     } catch (error) {
       throw error
     }
@@ -39,7 +39,7 @@ const UserDash = () => {
 
   const handleEdit = async (id) => {
     try {
-      await axios.put(`http://localhost:3001/meals/${id}`)
+      await Client.put(`/meals/${id}`)
     } catch (error) {
       throw error
     }
