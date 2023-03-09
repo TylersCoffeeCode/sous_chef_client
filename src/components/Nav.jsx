@@ -11,8 +11,8 @@ const Nav = ({user, handleLogOut}) => {
       </div>
       <div className='nav-list'>
         <Link to="/dashboard" className="inactive" activeclassname="active">Home</Link>
-        { user ? <Link to="/Favorites" className="inactive" activeclassname="active">Favorites</Link>
-        : <Link to="/Login" className="inactive" activeclassname="active">Favorites</Link>
+        { user ? <Link to="/auth" className="inactive" activeclassname="active">My Meals</Link>
+        : <Link to="/Login" className="inactive" activeclassname="active">My Meals</Link>
         }
         <Link to="/About" className="inactive" activeclassname="active">About</Link>
         { user ? <text style={{cursor: "pointer"}} className="inactive" activeclassname="active" onClick={()=>handleLogOut()}>Logout</text> 
