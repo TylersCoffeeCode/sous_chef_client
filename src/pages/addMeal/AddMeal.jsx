@@ -116,7 +116,7 @@ const AddMeal = () => {
             {/* <label htmlFor="cooktime">Cook Time</label> */}
             <input
               name="cooktime"
-              type="number"
+              type="text"
               placeholder="Number of hours ex. 1"
               onChange={handleChange}
             />

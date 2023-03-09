@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const LoginForm = ({toggleForm , setUser}) => {
-
+    const [failedLogin, setFailedLogin] = useState(false)
     let navigate = useNavigate()
 
     const loginUser = async (data) => {
@@ -32,12 +32,13 @@ const LoginForm = ({toggleForm , setUser}) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
-        const payload=  loginUser(formValues)
+        const payload=  await loginUser(formValues)
         setFormValues(initialState)
         setUser(payload)
-        if (payload) { navigate('/dashboard')}
+        navigate('/dashboard')
+        setFailedLogin(true)
     }
 
 
@@ -81,9 +82,10 @@ const LoginForm = ({toggleForm , setUser}) => {
                 }>
                 Sign In
             </button>
+            
             <div className='createFormText'>
                 <p className='pCreate'>Not a user? <a onClick={()=>toggleForm()}>Sign up now</a></p>
-            </div>
+            </div> 
         </form>
     )
 }
