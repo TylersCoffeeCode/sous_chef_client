@@ -1,7 +1,7 @@
 import '../pages/dashboard/Dashboard.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-
+import Client from '../services/api'
 
 const MealCard = (props) => {
 
@@ -10,7 +10,7 @@ const MealCard = (props) => {
 
   const GetUser = async (data) => {
     try {
-      const res = await axios.get(`http://localhost:3001/users/get/${author}`, data)
+      const res = await Client.get(`/users/get/${author}`, data)
       setUserName(res.data.username)
     } catch (error) {
       throw error

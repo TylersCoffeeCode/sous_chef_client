@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import Client from '../../services/api'
 
 
 
@@ -9,7 +9,7 @@ const Register = ({ toggleForm }) => {
     const RegisterUser = async (data) => {
         try {
             console.log(data)
-            const res = await axios.post('http://localhost:3001/users/register', data)
+            const res = await Client.post('/users/register', data)
             return res.data
         } catch (error) {
             throw error
@@ -99,7 +99,7 @@ const Register = ({ toggleForm }) => {
                     (!formValues.password &&
                         formValues.confirmPassword === formValues.password)
                 }>
-                Create User
+                Register
             </button>
             <div className='createFormText'>
                 <p className='pCreate'>Already a user? <a onClick={() => toggleForm()}>Sign in</a></p>

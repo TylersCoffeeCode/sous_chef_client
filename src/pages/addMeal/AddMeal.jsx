@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import './AddMeal.css'
 import Nav from '../../components/Nav'
+import Client from '../../services/api'
 
 const AddMeal = () => {
 
@@ -74,7 +74,7 @@ const AddMeal = () => {
 
   const addMeal = async (data) => {
     try {
-      const res = await axios.post('http://localhost:3001/meals/create', data)
+      const res = await Client.post('/meals/create', data)
       navigate('/dashboard')
       return res.data
     } catch (error) {
