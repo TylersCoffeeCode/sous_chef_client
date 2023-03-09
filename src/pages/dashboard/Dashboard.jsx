@@ -108,7 +108,7 @@ const Dashboard = ({ user,setUser }) => {
                         </div>
                     </div>
                 </div>
-                {meal.slice(0, 8).map((meal) => (
+                {meal.slice(-8).reverse().map((meal) => (
                     <Link to={`http://localhost:3000/meals/${meal.id}`} key={meal.id}>
                         <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby}    />
                     </Link>
