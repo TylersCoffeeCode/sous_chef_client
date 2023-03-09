@@ -4,13 +4,13 @@ import Home from './pages/home/Home';
 import Dashboard from './pages/dashboard/Dashboard';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Nav from './components/Nav'
 import About from './pages/about/About'
 import MealDetails from './pages/mealDetails/MealDetails'
 import AddMeal from './pages/addMeal/AddMeal'
 import Results from './pages/results/Results'
 import Login from './pages/login/Login'
 import Favorites from './pages/favorites/Favorites';
+import UserDash from './pages/UserDash/UserDash';
 
 
 function App() {
@@ -70,6 +70,7 @@ function App() {
         <Route path="/add/meal" element={<AddMeal getMeals={getMeals} />} />
         <Route path='/Login' element={<Login setUser={setUser} />} />
         <Route path='/favorites' element={<Favorites />} />
+        <Route path='/auth' element={<UserDash />}></Route>
       </Routes>
 
 
