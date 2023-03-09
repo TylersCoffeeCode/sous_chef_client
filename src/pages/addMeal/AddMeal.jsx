@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import './AddMeal.css'
 import Nav from '../../components/Nav'
 import Client from '../../services/api'

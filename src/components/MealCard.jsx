@@ -1,7 +1,7 @@
 import '../pages/dashboard/Dashboard.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import Client from '../../services/api'
+import Client from '../services/api'
 
 const MealCard = (props) => {
 
