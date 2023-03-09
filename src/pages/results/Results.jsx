@@ -5,6 +5,7 @@ import Search from "../../components/Search"
 import './Results.css'
 import Nav from '../../components/Nav'
 import sous from '../../imgs/home/sousChef.png'
+import { Link } from 'react-router-dom'
 
 
 
@@ -49,6 +50,7 @@ const Results = () => {
 
 
           {searchResults.map((searched) => (
+            <Link to={`/meals/${searched.id}`} key={searched.id}>
             <div className='resultCard' key={searched.id}>
               <img src={searched.picture} alt="food" />
               <div className='categoryCardText'>
@@ -59,6 +61,7 @@ const Results = () => {
                 <p>{searched.ingredients}</p>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -112,7 +112,7 @@ const Dashboard = ({ user, setUser }) => {
                     </div>
                 </div>
                 {meal.slice(-8).reverse().map((meal) => (
-                    <Link to={`http://localhost:3000/meals/${meal.id}`} key={meal.id}>
+                    <Link to={`/meals/${meal.id}`} key={meal.id}>
                         <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby} />
                     </Link>
                 ))}
@@ -132,7 +132,7 @@ const Dashboard = ({ user, setUser }) => {
             <div className='categoryCardDiv'>
 
                 {mealCuisine.map((card) => (
-                    <Link to={`http://localhost:3000/meals/${card.id}`} key={card.id}>
+                    <Link to={`/meals/${card.id}`} key={card.id}>
                         <CategoryCard name={card.name} picture={card?.picture} createdby={card?.createdby} cuisine={card?.cuisine} diet_type={card?.diet_type}/>
                     </Link>
 
