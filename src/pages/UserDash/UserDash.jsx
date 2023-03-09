@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Client from '../../services/api'
 import MealCard from '../../components/MealCard'
-import { Link } from 'react-router-dom'
+
 
 const UserDash = () => {
 
+  const navigate = useNavigate()
 
   const author = localStorage.getItem('user_id')
   const [greet, setGreet] = useState('')
@@ -37,13 +38,7 @@ const UserDash = () => {
     }
   }
 
-  const handleEdit = async (id) => {
-    try {
-      await Client.put(`/meals/${id}`)
-    } catch (error) {
-      throw error
-    }
-  }
+
   
 
 
@@ -62,9 +57,12 @@ const UserDash = () => {
         <h3>Your Meals</h3>
         {userMeals.map((meal) => (
           <div key={meal.id}>
+            {console.log(meal)}
             <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby} />
             <button onClick={() => handleDelete(meal.id)}>Delete Meal</button>
-            <button onClick={()=> handleEdit(meal.id)}>Edit Meal</button>
+            <Link to={`/edit`} state={{meal: meal}} >
+            <button >Edit Meal</button>
+            </Link>
           </div>
         ))}
       </div>

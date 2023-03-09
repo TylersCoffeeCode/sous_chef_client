@@ -1,10 +1,15 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import './AddMeal.css'
+import { useLocation,useNavigate } from 'react-router-dom'
+import './EditMeal.css'
 import Nav from '../../components/Nav'
 import Client from '../../services/api'
 
-const AddMeal = () => {
+
+const EditMeal = () => {
+
+  const locate = useLocation()
+  const { meal } = locate.state
+  console.log(meal)
 
   const navigate = useNavigate()
 
@@ -12,14 +17,14 @@ const AddMeal = () => {
 
   const initialState = {
     createdby: `${createdBy}`,
-    name: '',
-    description: '',
-    cooktime: '',
-    cuisine: '',
-    diet_type: '',
-    ingredients: '',
-    meal_type: '',
-    picture: ''
+    name: `${meal.name}`,
+    description: `${meal.description}`,
+    cooktime: `${meal.cooktime}`,
+    cuisine: `${meal.cuisine}`,
+    diet: `${meal.diet}`,
+    ingredients: `${meal.ingredients}`,
+    mealtype: `${meal.mealtype}`,
+    image: `${meal.picture}`
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -34,18 +39,20 @@ const AddMeal = () => {
       setCreateCardText((prev) => ({ ...prev, cuisine: value }));
     } else if (name === 'cooktime') {
       setCreateCardText((prev) => ({ ...prev, cooktime: `${value} hour(s)` }));
-    } else if (name === 'diet_type') {
-      setCreateCardText((prev) => ({ ...prev, diet_type: value }))
+    } else if (name === 'diet') {
+      setCreateCardText((prev) => ({ ...prev, diet: value }))
     } else if (name === 'ingredients') {
       setCreateCardText((prev) => ({ ...prev, ingredients: value }))
-    } else if (name === 'meal_type') {
-      setCreateCardText((prev) => ({ ...prev, meal_type: value }))
+    } else if (name === 'mealtype') {
+      setCreateCardText((prev) => ({ ...prev, mealtype: value }))
     }
 
-    if (name === 'picture') {
-      setCreateCardText((prev) => ({ ...prev, picture: value }));
+    if (name === 'image') {
+      if (files.length) {
+        const imageUrl = URL.createObjectURL(files[0]);
+        setCreateImage(imageUrl);
       }
-    
+    }
 
     if (name === 'description') {
       setCreateDescription((prev) => ({ ...prev, description: value }));
@@ -57,35 +64,29 @@ const AddMeal = () => {
   })
 
   const [createCardText, setCreateCardText] = useState({
-    title: '',
+    name: ``,
     cuisine: '',
     cooktime: '',
-    diet_type: '',
+    diet: '',
     ingredients: '',
-    meal_type: ''
+    mealtype: ''
   })
 
   const [createImage, setCreateImage] = useState('')
 
 
-
-
-  const addMeal = async (data) => {
+  const editMeal = async (id,data) => {
     try {
-      const res = await Client.post('/meals/create', data)
-      navigate('/dashboard')
-      return res.data
+      await Client.put(`/meals/${id}`, data)
     } catch (error) {
-      console.log(error);
       throw error
     }
   }
 
   const onSubmit = (e) => {
     e.preventDefault()
-    addMeal(formValues)
-    setFormValues(initialState)
-    navigate('/auth')
+    editMeal(meal.id, formValues)
+    // navigate('/auth')
   }
 
 
@@ -94,12 +95,13 @@ const AddMeal = () => {
       <Nav />
       <div className='add-page-div'>
         <div className='add-column'>
-          <h1>AddMeal</h1>
+          <h1>Edit Meal</h1>
           <form onSubmit={onSubmit} className='addForm'>
             <input
               name="name"
               type="text"
               placeholder="Meal Name ex. Nachos"
+              defaultValue= {meal.name}
               onChange={handleChange}
               required
             />
@@ -107,6 +109,7 @@ const AddMeal = () => {
               name="description"
               type="text"
               placeholder="Describe your food"
+              defaultValue= {meal.description}
               onChange={handleChange}
               required
             />
@@ -114,36 +117,42 @@ const AddMeal = () => {
               name="cooktime"
               type="text"
               placeholder="Number of hours ex. 1"
+              defaultValue= {meal.cooktime}
               onChange={handleChange}
             />
             <input
               name="cuisine"
               type="text"
               placeholder="Cuisine ex. Mexican, Italian, etc."
+              defaultValue= {meal.cuisine}
               onChange={handleChange}
             />
             <input
-              name="diet_type"
+              name="diet"
               type="text"
               placeholder="Diet ex. Various, Vegan"
+              defaultValue= {meal.diet}
               onChange={handleChange}
             />
             <input
               name="ingredients"
               type="text"
               placeholder="Ingredients ex. 250ml Egg, 1 cup water"
+              defaultValue= {meal.ingredients}
               onChange={handleChange}
             />
             <input
-              name="meal_type"
+              name="mealtype"
               type="text"
               placeholder="Breakfast? Lunch? Dinner?"
+              defaultValue= {meal.mealtype}
               onChange={handleChange}
             />
             <input
               name="picture"
               type="text"
               placeholder="Insert image url here"
+              defaultValue= {meal.picture}
               onChange={handleChange}
             />
             <button type="submit">Submit</button>
@@ -179,4 +188,4 @@ const AddMeal = () => {
     </div>
   )
 }
-export default AddMeal
+export default EditMeal

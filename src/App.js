@@ -11,6 +11,7 @@ import Login from './pages/login/Login'
 import Favorites from './pages/favorites/Favorites';
 import UserDash from './pages/UserDash/UserDash';
 import Client from './services/api'
+import EditMeal from './pages/editMeal/EditMeal'
 
 function App() {
 
@@ -70,6 +71,7 @@ function App() {
         <Route path='/Login' element={<Login setUser={setUser} />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/auth' element={<UserDash />}></Route>
+        <Route path='/edit' element={<EditMeal />}></Route>
       </Routes>
 
 
