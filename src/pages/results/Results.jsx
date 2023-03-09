@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import axios from "axios"
+import Client from '../../services/api'
 import Search from "../../components/Search"
 import './Results.css'
 import Nav from '../../components/Nav'
@@ -15,7 +15,7 @@ const Results = () => {
   const [searchResults, setSearchResults] = useState([])
 
   const getSearchResults = async () => {
-    const response = await axios.get(`http://localhost:3001/meals/search/${query}`)
+    const response = await Client.get(`/meals/search/${query}`)
     setSearchResults(response.data.meal)
     console.log(response);
   }

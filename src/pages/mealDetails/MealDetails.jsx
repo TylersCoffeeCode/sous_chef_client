@@ -5,6 +5,7 @@ import './MealDetails.css'
 import Nav from '../../components/Nav'
 import { Link } from 'react-router-dom'
 import Comments from '../../components/Comments'
+import Client from '../../services/api'
 
 
 const MealDetails = ({ meal }) => {
@@ -19,7 +20,7 @@ const MealDetails = ({ meal }) => {
 
   const getMealDetail = async () => {
     try {
-      const res = await axios.get(`http://localhost:3001/meals/${id}`)
+      const res = await Client.get(`/meals/${id}`)
       setMealDetails(res.data.meal)
       console.log(res.data.meal);
     } catch (err) {
