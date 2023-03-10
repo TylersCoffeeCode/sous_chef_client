@@ -16,8 +16,8 @@ const Nav = ({ user, setUser }) => {
       <div className='logo'>
         <Link to="/dashboard" >
           <img src={sous} alt="" />
-        </Link>
         <h3 className='link-title'>Sous Chef</h3>
+        </Link>
       </div>
       <div className='nav-list'>
         <Link to="/dashboard" className="inactive" activeclassname="active">Home</Link>
