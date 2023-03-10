@@ -67,6 +67,7 @@ const MealDetails = ({ meal, user, setUser }) => {
           </div>
         </div>
       </div>
+      <Comments meal_id={id} />
     </div>
   )
 }
