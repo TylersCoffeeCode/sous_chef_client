@@ -13,11 +13,9 @@ const Nav = ({ user, setUser }) => {
 
   return (
     <nav className='links'>
-      <div className='logo'>
-        <Link to="/dashboard" >
-          <img src={sous} alt="" />
+      <div className='logo' onClick={()=>navigate('/dashboard')}>
+          <img src={sous} alt="" />   
         <h3 className='link-title'>Sous Chef</h3>
-        </Link>
       </div>
       <div className='nav-list'>
         <Link to="/dashboard" className="inactive" activeclassname="active">Home</Link>
