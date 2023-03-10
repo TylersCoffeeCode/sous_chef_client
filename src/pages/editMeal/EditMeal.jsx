@@ -18,11 +18,11 @@ const EditMeal = () => {
     createdby: `${createdBy}`,
     name: `${meal.name}`,
     description: `${meal.description}`,
-    cooktime: `${meal.cooktime}`,
+    cook_time: `${meal.cook_time}`,
     cuisine: `${meal.cuisine}`,
-    diet: `${meal.diet}`,
+    diet_type: `${meal.diet_type}`,
     ingredients: `${meal.ingredients}`,
-    mealtype: `${meal.mealtype}`,
+    meal_type: `${meal.meal_type}`,
     image: `${meal.picture}`
   }
 
@@ -36,22 +36,21 @@ const EditMeal = () => {
       setCreateCardText((prev) => ({ ...prev, title: value }));
     } else if (name === 'cuisine') {
       setCreateCardText((prev) => ({ ...prev, cuisine: value }));
-    } else if (name === 'cooktime') {
-      setCreateCardText((prev) => ({ ...prev, cooktime: `${value} hour(s)` }));
-    } else if (name === 'diet') {
-      setCreateCardText((prev) => ({ ...prev, diet: value }))
+    } else if (name === 'cook_time') {
+      setCreateCardText((prev) => ({ ...prev, cook_time: `${value} hour(s)` }));
+    } else if (name === 'diet_type') {
+      setCreateCardText((prev) => ({ ...prev, diet_type: value }))
     } else if (name === 'ingredients') {
       setCreateCardText((prev) => ({ ...prev, ingredients: value }))
-    } else if (name === 'mealtype') {
-      setCreateCardText((prev) => ({ ...prev, mealtype: value }))
+    } else if (name === 'meal_type') {
+      setCreateCardText((prev) => ({ ...prev, meal_type: value }))
     }
 
-    if (name === 'image') {
-      if (files.length) {
-        const imageUrl = URL.createObjectURL(files[0]);
-        setCreateImage(imageUrl);
-      }
+
+    if (name === 'picture') {
+      setCreateImage(value);
     }
+
 
     if (name === 'description') {
       setCreateDescription((prev) => ({ ...prev, description: value }));
@@ -59,19 +58,20 @@ const EditMeal = () => {
   }
 
   const [createDescription, setCreateDescription] = useState({
-    description: '',
+    description: `${meal.description}`,
   })
 
   const [createCardText, setCreateCardText] = useState({
-    name: ``,
-    cuisine: '',
-    cooktime: '',
-    diet: '',
-    ingredients: '',
-    mealtype: ''
+    createdby: `${createdBy}`,
+    name: `${meal.name}`,
+    cook_time: `${meal.cook_time}`,
+    cuisine: `${meal.cuisine}`,
+    diet_type: `${meal.diet_type}`,
+    ingredients: `${meal.ingredients}`,
+    meal_type: `${meal.meal_type}`,
   })
 
-  const [createImage, setCreateImage] = useState('')
+  const [createImage, setCreateImage] = useState(meal.picture)
 
 
   const editMeal = async (id,data) => {
@@ -85,7 +85,7 @@ const EditMeal = () => {
   const onSubmit = (e) => {
     e.preventDefault()
     editMeal(meal.id, formValues)
-    // navigate('/auth')
+    navigate('/auth')
   }
 
 
@@ -113,10 +113,10 @@ const EditMeal = () => {
               required
             />
             <input
-              name="cooktime"
+              name="cook_time"
               type="text"
               placeholder="Number of hours ex. 1"
-              defaultValue= {meal.cooktime}
+              defaultValue= {meal.cook_time}
               onChange={handleChange}
             />
             <input
@@ -127,10 +127,10 @@ const EditMeal = () => {
               onChange={handleChange}
             />
             <input
-              name="diet"
+              name="diet_type"
               type="text"
               placeholder="Diet ex. Various, Vegan"
-              defaultValue= {meal.diet}
+              defaultValue= {meal.diet_type}
               onChange={handleChange}
             />
             <input
@@ -141,10 +141,10 @@ const EditMeal = () => {
               onChange={handleChange}
             />
             <input
-              name="mealtype"
+              name="meal_type"
               type="text"
               placeholder="Breakfast? Lunch? Dinner?"
-              defaultValue= {meal.mealtype}
+              defaultValue= {meal.meal_type}
               onChange={handleChange}
             />
             <input
@@ -170,10 +170,10 @@ const EditMeal = () => {
               <h3>{createCardText.title}</h3>
               <div className='createCategory'>
                 <h4>{createCardText.cuisine}</h4>
-                <h4 style={{ backgroundColor: '#53ddf2' }}>{createCardText.diet}</h4>
+                <h4 style={{ backgroundColor: '#53ddf2' }}>{createCardText.diet_type}</h4>
               </div>
-              <p>{createCardText.cooktime}</p>
-              <p>{createCardText.mealtype}</p>
+              <p>{createCardText.cook_time}</p>
+              <p>{createCardText.meal_type}</p>
               <p>{createCardText.ingredients}</p>
             </div>
           </div>
