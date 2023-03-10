@@ -133,7 +133,7 @@ const Dashboard = ({ user, setUser }) => {
 
                 {mealCuisine.map((card) => (
                     <Link to={`/meals/${card.id}`} key={card.id}>
-                        <CategoryCard name={card.name} picture={card?.picture} createdby={card?.createdby} cuisine={card?.cuisine} diet_type={card?.diet_type}/>
+                        <CategoryCard name={card?.name} picture={card?.picture} createdby={card?.createdby} cuisine={card?.cuisine} diet_type={card?.diet_type}/>
                     </Link>
 
                 ))}

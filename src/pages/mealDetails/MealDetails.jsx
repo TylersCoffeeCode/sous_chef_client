@@ -58,7 +58,7 @@ const MealDetails = ({ meal }) => {
           </div>
           <div className='mealTabTextCtn'>
               <div className={toggleTabs === 1 ? "mealTabText activeText" : "mealTabText"}>
-                <p>{mealDetails.cook_time} Minutes</p>
+                <p>{mealDetails.cook_time} hour&#40;s&#41;</p>
               </div>
               <div className={toggleTabs === 2 ? "mealTabText activeText" : "mealTabText"}>
                 <p>{mealDetails.ingredients}</p>

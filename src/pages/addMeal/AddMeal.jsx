@@ -14,7 +14,7 @@ const AddMeal = () => {
     createdby: `${createdBy}`,
     name: '',
     description: '',
-    cooktime: '',
+    cook_time: '',
     cuisine: '',
     diet_type: '',
     ingredients: '',
@@ -32,8 +32,8 @@ const AddMeal = () => {
       setCreateCardText((prev) => ({ ...prev, title: value }));
     } else if (name === 'cuisine') {
       setCreateCardText((prev) => ({ ...prev, cuisine: value }));
-    } else if (name === 'cooktime') {
-      setCreateCardText((prev) => ({ ...prev, cooktime: `${value} hour(s)` }));
+    } else if (name === 'cook_time') {
+      setCreateCardText((prev) => ({ ...prev, cook_time: `${value} hour(s)` }));
     } else if (name === 'diet_type') {
       setCreateCardText((prev) => ({ ...prev, diet_type: value }))
     } else if (name === 'ingredients') {
@@ -59,7 +59,7 @@ const AddMeal = () => {
   const [createCardText, setCreateCardText] = useState({
     title: '',
     cuisine: '',
-    cooktime: '',
+    cook_time: '',
     diet_type: '',
     ingredients: '',
     meal_type: ''
@@ -73,7 +73,6 @@ const AddMeal = () => {
   const addMeal = async (data) => {
     try {
       const res = await Client.post('/meals/create', data)
-      navigate('/dashboard')
       return res.data
     } catch (error) {
       console.log(error);
@@ -83,8 +82,8 @@ const AddMeal = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    addMeal(formValues)
     setFormValues(initialState)
+    addMeal(formValues)
     navigate('/auth')
   }
 
@@ -111,8 +110,9 @@ const AddMeal = () => {
               required
             />
             <input
-              name="cooktime"
-              type="text"
+              name="cook_time"
+              type="number"
+              step='any'
               placeholder="Number of hours ex. 1"
               onChange={handleChange}
             />
@@ -164,7 +164,7 @@ const AddMeal = () => {
                 <h4>{createCardText.cuisine}</h4>
                 <h4 style={{ backgroundColor: '#53ddf2' }}>{createCardText.diet_type}</h4>
               </div>
-              <p>{createCardText.cooktime}</p>
+              <p>{createCardText.cook_time}</p>
               <p>{createCardText.meal_type}</p>
               <p>{createCardText.ingredients}</p>
             </div>
