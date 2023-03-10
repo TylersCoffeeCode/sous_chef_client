@@ -111,12 +111,16 @@ const AddMeal = ({ user, setUser }) => {
               placeholder="Number of hours ex. 1"
               onChange={handleChange}
             />
-            <input
-              name="cuisine"
-              type="text"
-              placeholder="Cuisine ex. Mexican, Italian, etc."
-              onChange={handleChange}
-            />
+            <select className='select' name="cuisine" onChange={handleChange}>
+              <option value="">Cuisine ex. Mexican, Italian, etc.</option>
+              <option value="American">American</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Italian">Italian</option>
+              <option value="Asian">Asian</option>
+              <option value="Greek">Greek</option>
+              <option value="Brazilian">Brazilian</option>
+              <option value="African">African</option>
+            </select>
             <input
               name="diet_type"
               type="text"
