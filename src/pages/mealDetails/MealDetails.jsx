@@ -1,6 +1,5 @@
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import './MealDetails.css'
 import Nav from '../../components/Nav'
 import { Link } from 'react-router-dom'
@@ -8,7 +7,7 @@ import Comments from '../../components/Comments'
 import Client from '../../services/api'
 
 
-const MealDetails = ({ meal }) => {
+const MealDetails = ({ meal, user, setUser }) => {
   let { id } = useParams()
   const [mealDetails, setMealDetails] = useState({})
 
@@ -34,7 +33,7 @@ const MealDetails = ({ meal }) => {
 
   return (
     <div className='mealDetailsCtn'>
-      <Nav />
+      <Nav setUser={setUser} user={user}/>
       <div className='mealDetailsLeft'>
           <img src={mealDetails.picture} alt="" />
       </div>

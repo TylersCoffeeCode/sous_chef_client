@@ -4,7 +4,7 @@ import Nav from '../../components/Nav'
 import Client from '../../services/api'
 
 
-const EditMeal = () => {
+const EditMeal = ({user,setUser}) => {
 
   const locate = useLocation()
   const { meal } = locate.state
@@ -91,7 +91,7 @@ const EditMeal = () => {
 
   return (
     <div className='add-page-ctn'>
-      <Nav />
+      <Nav user={user} setUser={setUser}/>
       <div className='add-page-div'>
         <div className='add-column'>
           <h1>Edit Meal</h1>

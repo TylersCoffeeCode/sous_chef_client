@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Client from '../../services/api'
 import MealCard from '../../components/MealCard'
 import './UserDash.css'
 import Nav from '../../components/Nav'
 
-const UserDash = () => {
+const UserDash = ({user, setUser}) => {
 
-  const navigate = useNavigate()
+
 
   const author = localStorage.getItem('user_id')
   const [greet, setGreet] = useState('')
@@ -26,6 +26,7 @@ const UserDash = () => {
     try {
       const res = await Client.get(`/users/get/meals/${author}`)
       setUserMeals(res.data)
+      setFlip(true)
     } catch (error) {
       throw error
     }
@@ -34,6 +35,7 @@ const UserDash = () => {
   const handleDelete = async (id) => {
     try {
       await Client.delete(`/meals/${id}`)
+      setFlip(!flip)
     } catch (error) {
       throw error
     }
@@ -41,19 +43,19 @@ const UserDash = () => {
 
 
 
-
+const [flip, setFlip] = useState(false)
 
 
   useEffect(() => {
     GetUser()
     getUserMeals()
-  }, [author])
+  }, [flip])
 
 
 
   return (
     <div className='meal-ctn2'>
-      <Nav />
+      <Nav user={user} setUser={setUser} />
       <div className='greeting'>
       <h1>Welcome {greet} </h1>
       </div>

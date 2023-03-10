@@ -1,7 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sous from '../imgs/home/sousChef.png'
 
-const Nav = ({user, handleLogOut}) => {
+
+const Nav = ({user, setUser}) => {
+
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+
+    setUser(null)
+    localStorage.clear()
+    navigate('/Login')
+}
 
   return (
     <nav className='links'>
@@ -15,7 +25,7 @@ const Nav = ({user, handleLogOut}) => {
         : <Link to="/Login" className="inactive" activeclassname="active">My Meals</Link>
         }
         <Link to="/About" className="inactive" activeclassname="active">About</Link>
-        { user ? <text style={{cursor: "pointer"}} className="inactive" activeclassname="active" onClick={()=>handleLogOut()}>Logout</text> 
+        { user ? <a style={{cursor: "pointer"}} className="inactive" activeclassname="active" onClick={()=>handleLogOut()}>Logout</a> 
         : <Link to="/Login" className="inactive" activeclassname="active">Login</Link>
         }
         

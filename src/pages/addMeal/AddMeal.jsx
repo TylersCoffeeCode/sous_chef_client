@@ -4,7 +4,7 @@ import './AddMeal.css'
 import Nav from '../../components/Nav'
 import Client from '../../services/api'
 
-const AddMeal = () => {
+const AddMeal = ({user,setUser}) => {
 
   const navigate = useNavigate()
 
@@ -90,7 +90,7 @@ const AddMeal = () => {
 
   return (
     <div className='add-page-ctn'>
-      <Nav />
+      <Nav user={user} setUser={setUser}/>
       <div className='add-page-div'>
         <div className='add-column'>
           <h1>AddMeal</h1>

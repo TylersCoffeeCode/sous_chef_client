@@ -11,8 +11,6 @@ import CategoryCard from '../../components/CategoryCard'
 
 const Dashboard = ({ user, setUser }) => {
 
-    const [searchResults, setSearchResults] = useState([])
-    const [searched, toggleSearched] = useState(false)
     const [searchQuery, setSearchQuery] = useState('')
     const navigate = useNavigate()
 
@@ -57,13 +55,6 @@ const Dashboard = ({ user, setUser }) => {
         setSearchQuery(event.target.value)
     }
 
-    const handleLogOut = () => {
-
-        setUser(null)
-
-        localStorage.clear()
-    }
-
     const createRecipe = () => {
         if (user) {
             navigate('/add/meal')
@@ -75,7 +66,7 @@ const Dashboard = ({ user, setUser }) => {
 
     return (
         <div className="dashboard-ctn">
-            <Nav user={user} handleLogOut={handleLogOut} />
+            <Nav user={user} setUser={setUser}/>
             <div className='spacer'></div>
             <div className='top-div'>
                 <div className='search-ctn'>

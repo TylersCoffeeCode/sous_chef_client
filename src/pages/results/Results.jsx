@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const Results = () => {
+const Results = ({user, setUser}) => {
 
   const { query } = useParams()
 
@@ -28,7 +28,7 @@ const Results = () => {
 
   return (
     <div className="result-ctn">
-      <Nav />
+      <Nav user={user} setUser={setUser}/>
       <div className="searchCtn">
         <div className="searchTitle">
           <h2>Unleash your inner chef with our recipe search feature</h2>

@@ -62,16 +62,16 @@ function App() {
       <Routes className="Routes">
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard user={user} setUser={setUser} />} />
-          <Route path="/about" element={<About />} />
-          <Route path='/results/:query' element={<Results/>} />
+          <Route path="/about" element={<About user={user} setUser={setUser} />} />
+          <Route path='/results/:query' element={<Results user={user} setUser={setUser} />} />
           <Route path="/meals/:id" element={
-              <MealDetails meal={meal} getMeals={getMeals} />
+              <MealDetails meal={meal} getMeals={getMeals} user={user} setUser={setUser} />
             }/>
-        <Route path="/add/meal" element={<AddMeal getMeals={getMeals} />} />
+        <Route path="/add/meal" element={<AddMeal user={user} getMeals={getMeals} setUser={setUser} />} />
         <Route path='/Login' element={<Login setUser={setUser} />} />
         <Route path='/favorites' element={<Favorites />} />
-        <Route path='/auth' element={<UserDash />}></Route>
-        <Route path='/edit' element={<EditMeal />}></Route>
+        <Route path='/auth' element={<UserDash user={user} setUser={setUser}/>}></Route>
+        <Route path='/edit' element={<EditMeal user={user} setUser={setUser}/>}></Route>
       </Routes>
 
 
