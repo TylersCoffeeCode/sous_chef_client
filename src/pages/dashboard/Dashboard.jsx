@@ -36,7 +36,6 @@ const Dashboard = ({ user, setUser }) => {
         try {
             const res = await Client.get(`/meals/type/${x}`)
             setmealCuisine(res.data.meal)
-            console.log(mealCuisine);
         } catch (err) {
             console.log(err)
         }

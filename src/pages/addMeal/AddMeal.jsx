@@ -46,7 +46,6 @@ const AddMeal = ({ user, setUser }) => {
       setCreateImage(value);
     }
 
-
     if (name === 'description') {
       setCreateDescription((prev) => ({ ...prev, description: value }));
     }
@@ -67,9 +66,6 @@ const AddMeal = ({ user, setUser }) => {
 
   const [createImage, setCreateImage] = useState('')
 
-
-
-
   const addMeal = async (data) => {
     try {
       const res = await Client.post('/meals/create', data)
@@ -86,7 +82,6 @@ const AddMeal = ({ user, setUser }) => {
     addMeal(formValues)
     navigate('/auth')
   }
-
 
   return (
     <div className='add-page-ctn'>
@@ -148,7 +143,6 @@ const AddMeal = ({ user, setUser }) => {
             />
             <button type="submit">Submit</button>
           </form>
-
         </div>
         <div className='pageCreateCtn'>
           <div className='pageTitle'>
@@ -174,7 +168,6 @@ const AddMeal = ({ user, setUser }) => {
             <p>{createDescription.description}</p>
           </div>
         </div>
-
       </div>
     </div>
   )

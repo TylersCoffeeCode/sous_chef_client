@@ -8,7 +8,6 @@ const EditMeal = ({ user, setUser }) => {
 
   const locate = useLocation()
   const { meal } = locate.state
-  console.log(meal)
 
   const navigate = useNavigate()
 
@@ -29,7 +28,7 @@ const EditMeal = ({ user, setUser }) => {
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
 
     if (name === 'name') {
@@ -112,7 +111,8 @@ const EditMeal = ({ user, setUser }) => {
             />
             <input
               name="cook_time"
-              type="text"
+              type="number"
+              step="any"
               placeholder="Number of hours ex. 1"
               defaultValue={meal.cook_time}
               onChange={handleChange}

@@ -21,7 +21,6 @@ const MealDetails = ({ meal, user, setUser }) => {
     try {
       const res = await Client.get(`/meals/${id}`)
       setMealDetails(res.data.meal)
-      console.log(res.data.meal);
     } catch (err) {
       console.log(err)
     }

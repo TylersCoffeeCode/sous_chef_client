@@ -18,7 +18,6 @@ const Results = ({ user, setUser }) => {
   const getSearchResults = async () => {
     const response = await Client.get(`/meals/search/${query}`)
     setSearchResults(response.data.meal)
-    console.log(response);
   }
 
   useEffect(() => {

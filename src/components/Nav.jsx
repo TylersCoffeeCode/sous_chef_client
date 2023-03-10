@@ -10,11 +10,13 @@ const Nav = ({ user, setUser }) => {
     localStorage.clear()
     navigate('/Login')
   }
-  
+
   return (
     <nav className='links'>
       <div className='logo'>
-        <img src={sous} alt="" />
+        <Link to="/dashboard" >
+          <img src={sous} alt="" />
+        </Link>
         <h3 className='link-title'>Sous Chef</h3>
       </div>
       <div className='nav-list'>
