@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import Client from '../../services/api'
 import Search from "../../components/Search"
@@ -10,10 +10,12 @@ import { Link } from 'react-router-dom'
 
 
 const Results = ({user, setUser}) => {
-
+  
+  const navigate = useNavigate()
   const { query } = useParams()
 
   const [searchResults, setSearchResults] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
 
   const getSearchResults = async () => {
     const response = await Client.get(`/meals/search/${query}`)
@@ -25,6 +27,11 @@ const Results = ({user, setUser}) => {
     getSearchResults()
   }, [query])
 
+  
+  const handleChange = (event) => {
+    setSearchQuery(event.target.value)
+}
+
 
   return (
     <div className="result-ctn">
@@ -34,7 +41,10 @@ const Results = ({user, setUser}) => {
           <h2>Unleash your inner chef with our recipe search feature</h2>
         </div>
         <div className="searchBar">
-          <Search />
+          <Search 
+          onSubmit={() => navigate(`/results/${searchQuery}`)}
+          onChange={handleChange}
+          />
         </div>
       </div>
 
