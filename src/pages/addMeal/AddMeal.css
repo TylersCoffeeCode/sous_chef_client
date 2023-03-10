@@ -4,6 +4,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-image: url('../../imgs/addCard/flame.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .add-page-div {
@@ -25,6 +28,7 @@
     border-radius: 22px;
     box-shadow: #474747 6px 8px 8px;
     border: 1px solid #F26853;
+    background-color: white;
 }
 
 .add-column h1 {
@@ -76,6 +80,7 @@
     justify-content: space-between;
     align-items: self-start;
     box-shadow: #474747 6px 8px 8px;
+    background-color: white;
 }
 
 .creatingCardDiv {
