@@ -5,9 +5,7 @@ import MealCard from '../../components/MealCard'
 import './UserDash.css'
 import Nav from '../../components/Nav'
 
-const UserDash = ({user, setUser}) => {
-
-
+const UserDash = ({ user, setUser }) => {
 
   const author = localStorage.getItem('user_id')
   const [greet, setGreet] = useState('')
@@ -41,37 +39,30 @@ const UserDash = ({user, setUser}) => {
     }
   }
 
-
-
-const [flip, setFlip] = useState(false)
-
+  const [flip, setFlip] = useState(false)
 
   useEffect(() => {
     GetUser()
     getUserMeals()
   }, [flip])
 
-
-
   return (
     <div className='meal-ctn2'>
       <Nav user={user} setUser={setUser} />
       <div className='greeting'>
-      <h1>Welcome {greet} </h1>
+        <h1>Welcome {greet} </h1>
       </div>
       <div className='bigDiv2'>
         <h3>Your Meals</h3>
         {userMeals.map((meal) => (
           <div className='meal-div-card-ctn2 ' key={meal.id}>
-            {/* <div className='meal-div'> */}
-              <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby} />
-              <div className="button">
+            <MealCard name={meal?.name} picture={meal?.picture} createdby={meal?.createdby} />
+            <div className="button">
               <button onClick={() => handleDelete(meal.id)}>Delete Meal</button>
               <Link to={`/edit`} state={{ meal: meal }} >
                 <button >Edit Meal</button>
               </Link>
-              </div>
-            {/* </div> */}
+            </div>
           </div>
         ))}
       </div>

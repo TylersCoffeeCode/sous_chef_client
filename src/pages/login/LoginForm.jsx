@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Client from '../../services/api'
 
-const LoginForm = ({toggleForm , setUser}) => {
+const LoginForm = ({ toggleForm, setUser }) => {
     const [failedLogin, setFailedLogin] = useState(false)
     let navigate = useNavigate()
 
@@ -19,7 +19,6 @@ const LoginForm = ({toggleForm , setUser}) => {
         }
     }
 
-
     const initialState = {
         name: '',
         email: '',
@@ -34,14 +33,12 @@ const LoginForm = ({toggleForm , setUser}) => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        const payload=  await loginUser(formValues)
+        const payload = await loginUser(formValues)
         setFormValues(initialState)
         setUser(payload)
         navigate('/dashboard')
         setFailedLogin(true)
     }
-
-
 
     return (
         <form className="col" onSubmit={onSubmit}>
@@ -82,10 +79,9 @@ const LoginForm = ({toggleForm , setUser}) => {
                 }>
                 Sign In
             </button>
-            
             <div className='createFormText'>
-                <p className='pCreate'>Not a user? <a onClick={()=>toggleForm()}>Sign up now</a></p>
-            </div> 
+                <p className='pCreate'>Not a user? <a onClick={() => toggleForm()}>Sign up now</a></p>
+            </div>
         </form>
     )
 }

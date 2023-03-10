@@ -35,7 +35,7 @@ function App() {
       throw error
     }
   }
-  
+
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -55,25 +55,20 @@ function App() {
 
   return (
     <div className="App">
-        
-
-      {/* HELLO WORKING PAGE */}
       <Routes className="Routes">
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Dashboard user={user} setUser={setUser} />} />
-          <Route path="/about" element={<About user={user} setUser={setUser} />} />
-          <Route path='/results/:query' element={<Results user={user} setUser={setUser} />} />
-          <Route path="/meals/:id" element={
-              <MealDetails meal={meal} getMeals={getMeals} user={user} setUser={setUser} />
-            }/>
+        <Route path="/about" element={<About user={user} setUser={setUser} />} />
+        <Route path='/results/:query' element={<Results user={user} setUser={setUser} />} />
+        <Route path="/meals/:id" element={
+          <MealDetails meal={meal} getMeals={getMeals} user={user} setUser={setUser} />
+        } />
         <Route path="/add/meal" element={<AddMeal user={user} getMeals={getMeals} setUser={setUser} />} />
         <Route path='/Login' element={<Login setUser={setUser} />} />
         <Route path='/favorites' element={<Favorites />} />
-        <Route path='/auth' element={<UserDash user={user} setUser={setUser}/>}></Route>
-        <Route path='/edit' element={<EditMeal user={user} setUser={setUser}/>}></Route>
+        <Route path='/auth' element={<UserDash user={user} setUser={setUser} />}></Route>
+        <Route path='/edit' element={<EditMeal user={user} setUser={setUser} />}></Route>
       </Routes>
-
-
     </div>
   );
 }

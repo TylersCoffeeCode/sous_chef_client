@@ -1,4 +1,4 @@
-import { useParams, NavLink, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './MealDetails.css'
 import Nav from '../../components/Nav'
@@ -33,9 +33,9 @@ const MealDetails = ({ meal, user, setUser }) => {
 
   return (
     <div className='mealDetailsCtn'>
-      <Nav setUser={setUser} user={user}/>
+      <Nav setUser={setUser} user={user} />
       <div className='mealDetailsLeft'>
-          <img src={mealDetails.picture} alt="" />
+        <img src={mealDetails.picture} alt="" />
       </div>
       <div className='mealDetailsRight'>
         <div className='backBtn'>
@@ -56,15 +56,15 @@ const MealDetails = ({ meal, user, setUser }) => {
             <h3>Recipe</h3>
           </div>
           <div className='mealTabTextCtn'>
-              <div className={toggleTabs === 1 ? "mealTabText activeText" : "mealTabText"}>
-                <p>{mealDetails.cook_time} hour&#40;s&#41;</p>
-              </div>
-              <div className={toggleTabs === 2 ? "mealTabText activeText" : "mealTabText"}>
-                <p>{mealDetails.ingredients}</p>
-              </div>
-              <div className={toggleTabs === 3 ? "mealTabText activeText" : "mealTabText"}>
-                <p></p>
-              </div>
+            <div className={toggleTabs === 1 ? "mealTabText activeText" : "mealTabText"}>
+              <p>{mealDetails.cook_time} hour&#40;s&#41;</p>
+            </div>
+            <div className={toggleTabs === 2 ? "mealTabText activeText" : "mealTabText"}>
+              <p>{mealDetails.ingredients}</p>
+            </div>
+            <div className={toggleTabs === 3 ? "mealTabText activeText" : "mealTabText"}>
+              <p></p>
+            </div>
           </div>
         </div>
       </div>

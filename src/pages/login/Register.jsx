@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import Client from '../../services/api'
 
-
-
 const Register = ({ toggleForm }) => {
 
     const RegisterUser = async (data) => {
@@ -33,18 +31,18 @@ const Register = ({ toggleForm }) => {
         console.log('hi');
         await RegisterUser(formValues)
         await checkUser(formValues)
-  }
-
-  const checkUser = async (data) => {
-    try {
-        const res = await Client.post('/users/login', data)
-        toggleForm()
-        return res.data
-    } catch (error) {
-        console.log(error);
-        throw error
     }
-}
+
+    const checkUser = async (data) => {
+        try {
+            const res = await Client.post('/users/login', data)
+            toggleForm()
+            return res.data
+        } catch (error) {
+            console.log(error);
+            throw error
+        }
+    }
 
 
     return (

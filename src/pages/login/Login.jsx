@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
 import './Login.css'
 import sous from '../../imgs/home/sousChef.png'
@@ -8,19 +7,6 @@ import Register from './Register'
 
 
 const Login = ({ setUser }) => {
-
-  let navigate = useNavigate()
-  const initialState = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  }
-  const [formValues, setFormValues] = useState(initialState)
-
-  const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
-  }
 
   const [form, setForm] = useState(false)
 

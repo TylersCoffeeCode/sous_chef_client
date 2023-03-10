@@ -1,5 +1,4 @@
 .mealDetailsCtn {
-    /* background-color: aquamarine; */
     width: 100%;
     height: 95vh;
     display: flex;
@@ -7,7 +6,6 @@
 }
 
 .mealDetailsLeft {
-    /* background-color: tomato; */
     width: 50%;
     height: 100%;
     display: flex;
@@ -26,16 +24,12 @@
     transition: 0.5s;
 }
 
-
-
 .mealDetailsRight {
-    /* background-color: darkcyan; */
     width: 50%;
     height: 100%;
 }
 
 .backBtn {
-    /* background-color: darkmagenta; */
     width: 10%;
     margin-top: 2rem;
     margin-left: 2rem;
@@ -53,7 +47,6 @@
 
 
 .mealNameDesc {
-    /* background-color: aliceblue; */
     width: 90%;
     height: 40%;
     margin-left: 2rem;
@@ -65,7 +58,6 @@
 }
 
 .mealTabCnt {
-    /* background-color: antiquewhite; */
     width: 90%;
     height: 30%;
     margin-left: 2rem;
@@ -104,8 +96,6 @@
 .mealTabText {
     display: none;
 }
-
-
 
 .activeText {
     display: flex;
