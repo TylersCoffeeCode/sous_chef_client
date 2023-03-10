@@ -7,9 +7,7 @@ import LoginForm from './LoginForm'
 import Register from './Register'
 
 
-const Login = ({setUser}) => {
-
-
+const Login = ({ setUser }) => {
 
   let navigate = useNavigate()
   const initialState = {
@@ -24,22 +22,11 @@ const Login = ({setUser}) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
-  const [form,setForm] = useState(false)
+  const [form, setForm] = useState(false)
 
-  const  toggleForm = () => {
+  const toggleForm = () => {
     setForm(!form)
   }
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   await RegisterUser({
-  //     name: formValues.name,
-  //     email: formValues.email,
-  //     password: formValues.password
-  //   })
-  //   setFormValues(initialState)
-  //   navigate('/signin')
-  // }
 
   return (
     <div className="form-page-ctn">
@@ -48,7 +35,7 @@ const Login = ({setUser}) => {
         <div className='form-header'>
           <img src={sous} alt="" />
         </div>
-        {form ? <Register toggleForm={toggleForm}/> : <LoginForm toggleForm={toggleForm} setUser={setUser}/>}
+        {form ? <Register toggleForm={toggleForm} /> : <LoginForm toggleForm={toggleForm} setUser={setUser} />}
       </div>
     </div>
   )

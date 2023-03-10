@@ -21,7 +21,6 @@ const Dashboard = ({ user, setUser }) => {
         getmealCuisine(x)
     }
 
-
     const [meal, setMeal] = useState([])
     const getMeals = async () => {
         try {
@@ -61,12 +60,9 @@ const Dashboard = ({ user, setUser }) => {
         } else navigate('/Login')
     }
 
-
-    //   const newly_add = meal[meal.length - 1]
-
     return (
         <div className="dashboard-ctn">
-            <Nav user={user} setUser={setUser}/>
+            <Nav user={user} setUser={setUser} />
             <div className='spacer'></div>
             <div className='top-div'>
                 <div className='search-ctn'>
@@ -91,7 +87,7 @@ const Dashboard = ({ user, setUser }) => {
             <div className='trending-div-title'>Trending Now 🔥</div>
             <div className='trending-div'>
                 <div className='createCardDiv'>
-                    <div className='createCard'onClick={() => createRecipe()}>
+                    <div className='createCard' onClick={() => createRecipe()}>
                         <div className='addCardText' >
                             <h3>Create a Recipe</h3>
                             <h4>Easy to make</h4>
@@ -124,70 +120,11 @@ const Dashboard = ({ user, setUser }) => {
 
                 {mealCuisine.map((card) => (
                     <Link to={`/meals/${card.id}`} key={card.id}>
-                        <CategoryCard name={card?.name} picture={card?.picture} createdby={card?.createdby} cuisine={card?.cuisine} diet_type={card?.diet_type}/>
+                        <CategoryCard name={card?.name} picture={card?.picture} createdby={card?.createdby} cuisine={card?.cuisine} diet_type={card?.diet_type} />
                     </Link>
 
                 ))}
             </div>
-
-
-
-            {/* <div className='categoryCard'>
-                    <div className='categoryCardText'>
-                        <p className='cuisine'>Cusine</p>
-                        <h3>Oven Baked Golden Crusted Steak</h3>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-
-                <div className='categoryCard'>
-                    <div className='categoryCardText'>
-                        <p className='cuisine'>Cusine</p>
-                        <h3>Oven Baked Golden Crusted Steak</h3>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-
-                <div className='categoryCard'>
-                    <div className='categoryCardText'>
-                        <p className='cuisine'>Cusine</p>
-                        <h3>Oven Baked Golden Crusted Steak</h3>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-
-                <div className='categoryCard'>
-                    <div className='categoryCardText'>
-                        <p className='cuisine'>Cusine</p>
-                        <h3>Oven Baked Golden Crusted Steak</h3>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-
-                <div className='categoryCard'>
-                    <div className='categoryCardText'>
-                        <p className='cuisine'>Cusine</p>
-                        <h3>Oven Baked Golden Crusted Steak</h3>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-
-                <div className='categoryCard'>
-                    <div className='categoryCardText'>
-                        <p className='cuisine'>Cusine</p>
-                        <h3>Oven Baked Golden Crusted Steak</h3>
-                        <p>By: Tyler</p>
-                    </div>
-                </div>
-
-                <div className='categoryCard'>
-                    <div className='categoryCardText'>
-                        <p className='cuisine'>Cusine</p>
-                        <h3>Oven Baked Golden Crusted Steak</h3>
-                        <p>By: Tyler</p>
-                    </div>
-
-            </div>  */}
         </div>
     )
 }

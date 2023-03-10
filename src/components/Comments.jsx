@@ -76,20 +76,6 @@ return (
     (
       <form className="form"onSubmit={ handleSubmit }>
         <input type="text" onChange={handleChange} value={formValues.name} name={"name"} id='name' placeholder={'Name'} />
-        {/* <div className="star-rating">
-      {[...Array(5)].map((star, index) => {
-        index += 1;
-        return (
-          <button name='rating' id="rating" type="button" value={updatePost?.rating} key={index} className={index <= (hover || rating) ? "on" : "off"}
-            onClick={() => setRating(index)}
-            onMouseEnter={() => setHover(index)}
-            onMouseLeave={() => setHover(rating)}
-          >
-            <span className="star">&#9733;</span>
-          </button>
-        );
-      })}
-    </div> */}
         <br/>
         <textarea cols="40" rows="5" id='Comment' onChange={handleChange} value={formValues.Comment} name={"Comment"}  placeholder={'Comment'}></textarea>
         <br/>
@@ -98,20 +84,6 @@ return (
     ): (
       <form onSubmit={ handleUpdate }>
         <input type="text" onChange={updateHandleChange} value={updatePost?.name} name={"name"} id='name' placeholder={'Name'} />
-        {/* <div className="star-rating">
-      {[...Array(5)].map((star, index) => {
-        index += 1;
-        return (
-          <button name='rating' id="rating" type="button" value={updatePost?.rating} key={index} className={index <= (hover || rating) ? "on" : "off"}
-            onClick={() => setRating(index)}
-            onMouseEnter={() => setHover(index)}
-            onMouseLeave={() => setHover(rating)}
-          >
-            <span className="star">&#9733;</span>
-          </button>
-        );
-      })}
-    </div> */}
         <br/>
         <textarea cols="40" rows="5" id='Comment' onChange={updateHandleChange} value={updatePost?.Comment} name={"Comment"}  placeholder={'Comment'}></textarea>
         <br/>

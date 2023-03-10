@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { useLocation,useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Nav from '../../components/Nav'
 import Client from '../../services/api'
 
 
-const EditMeal = ({user,setUser}) => {
+const EditMeal = ({ user, setUser }) => {
 
   const locate = useLocation()
   const { meal } = locate.state
@@ -46,7 +46,6 @@ const EditMeal = ({user,setUser}) => {
       setCreateCardText((prev) => ({ ...prev, meal_type: value }))
     }
 
-
     if (name === 'picture') {
       setCreateImage(value);
     }
@@ -73,8 +72,7 @@ const EditMeal = ({user,setUser}) => {
 
   const [createImage, setCreateImage] = useState(meal.picture)
 
-
-  const editMeal = async (id,data) => {
+  const editMeal = async (id, data) => {
     try {
       await Client.put(`/meals/${id}`, data)
     } catch (error) {
@@ -91,7 +89,7 @@ const EditMeal = ({user,setUser}) => {
 
   return (
     <div className='add-page-ctn'>
-      <Nav user={user} setUser={setUser}/>
+      <Nav user={user} setUser={setUser} />
       <div className='add-page-div'>
         <div className='add-column'>
           <h1>Edit Meal</h1>
@@ -100,7 +98,7 @@ const EditMeal = ({user,setUser}) => {
               name="name"
               type="text"
               placeholder="Meal Name ex. Nachos"
-              defaultValue= {meal.name}
+              defaultValue={meal.name}
               onChange={handleChange}
               required
             />
@@ -108,7 +106,7 @@ const EditMeal = ({user,setUser}) => {
               name="description"
               type="text"
               placeholder="Describe your food"
-              defaultValue= {meal.description}
+              defaultValue={meal.description}
               onChange={handleChange}
               required
             />
@@ -116,47 +114,46 @@ const EditMeal = ({user,setUser}) => {
               name="cook_time"
               type="text"
               placeholder="Number of hours ex. 1"
-              defaultValue= {meal.cook_time}
+              defaultValue={meal.cook_time}
               onChange={handleChange}
             />
             <input
               name="cuisine"
               type="text"
               placeholder="Cuisine ex. Mexican, Italian, etc."
-              defaultValue= {meal.cuisine}
+              defaultValue={meal.cuisine}
               onChange={handleChange}
             />
             <input
               name="diet_type"
               type="text"
               placeholder="Diet ex. Various, Vegan"
-              defaultValue= {meal.diet_type}
+              defaultValue={meal.diet_type}
               onChange={handleChange}
             />
             <input
               name="ingredients"
               type="text"
               placeholder="Ingredients ex. 250ml Egg, 1 cup water"
-              defaultValue= {meal.ingredients}
+              defaultValue={meal.ingredients}
               onChange={handleChange}
             />
             <input
               name="meal_type"
               type="text"
               placeholder="Breakfast? Lunch? Dinner?"
-              defaultValue= {meal.meal_type}
+              defaultValue={meal.meal_type}
               onChange={handleChange}
             />
             <input
               name="picture"
               type="text"
               placeholder="Insert image url here"
-              defaultValue= {meal.picture}
+              defaultValue={meal.picture}
               onChange={handleChange}
             />
             <button type="submit">Submit</button>
           </form>
-
         </div>
         <div className='pageCreateCtn'>
           <div className='pageTitle'>

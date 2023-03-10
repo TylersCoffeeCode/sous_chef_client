@@ -2,10 +2,10 @@ import Nav from '../../components/Nav'
 import './About.css'
 import sous from '../../imgs/home/sousChef.png'
 
-const About = ({user, setUser}) => {
+const About = ({ user, setUser }) => {
   return (
     <div className='about-page-ctn'>
-      <Nav user={user} setUser={setUser}/>
+      <Nav user={user} setUser={setUser} />
       <div className='about-page-left'>
         <img src={sous} alt="" />
       </div>

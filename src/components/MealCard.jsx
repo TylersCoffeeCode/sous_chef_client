@@ -1,5 +1,4 @@
 import '../pages/dashboard/Dashboard.css'
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
 
@@ -33,7 +32,6 @@ const MealCard = (props) => {
       <div className="trendingFoodCardText">
         <h5>{props.name}</h5>
         <p>By: {userName}</p>
-        {/* <h2>{props.cuisine}</h2> */}
       </div>
     </div>
   )

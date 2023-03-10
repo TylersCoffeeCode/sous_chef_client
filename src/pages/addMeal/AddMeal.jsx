@@ -4,7 +4,7 @@ import './AddMeal.css'
 import Nav from '../../components/Nav'
 import Client from '../../services/api'
 
-const AddMeal = ({user,setUser}) => {
+const AddMeal = ({ user, setUser }) => {
 
   const navigate = useNavigate()
 
@@ -25,7 +25,7 @@ const AddMeal = ({user,setUser}) => {
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
-    const { name, value} = e.target;
+    const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
 
     if (name === 'name') {
@@ -45,7 +45,7 @@ const AddMeal = ({user,setUser}) => {
     if (name === 'picture') {
       setCreateImage(value);
     }
-    
+
 
     if (name === 'description') {
       setCreateDescription((prev) => ({ ...prev, description: value }));
@@ -90,7 +90,7 @@ const AddMeal = ({user,setUser}) => {
 
   return (
     <div className='add-page-ctn'>
-      <Nav user={user} setUser={setUser}/>
+      <Nav user={user} setUser={setUser} />
       <div className='add-page-div'>
         <div className='add-column'>
           <h1>AddMeal</h1>
