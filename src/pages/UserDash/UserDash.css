@@ -109,3 +109,7 @@
   width: 50%;
   background-color: chartreuse;
 }
+
+.meal-div-card-ctn2 > .trendingFoodCard > .trendingFoodCardImg {
+  padding-bottom: 0.5rem;
+}

@@ -36,12 +36,12 @@
 }
 
 .home-left-title {
-    height: 60px;
+    height: 90px;
     width: 100%;
 }
 
 .home-left-title h1 {
-    font-size: 42px;
+    font-size: 40px;
     text-align: center;
     color: black;
 }
@@ -63,6 +63,7 @@
 .home-left-text h2 {
     font-size: 30px;
     color: black;
+    margin-top: 1.2rem;
     margin-bottom: 1rem;
 }
 
@@ -70,7 +71,7 @@
     font-size: 18px;
     color: #ACACAC;
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .home-left-text button {
@@ -109,6 +110,14 @@
     background-image: url(../../imgs/home/sandwich.jpg);
     background-size: cover;
     background-position: center;
+}
+
+.sandwich:nth-child(2) {
+    background-image: url(../../imgs/home/nacho.jpg);
+}
+
+.sandwich:nth-child(3) {
+    background-image: url(../../imgs/home/cookie.jpg);
 }
 
 .home-right {
