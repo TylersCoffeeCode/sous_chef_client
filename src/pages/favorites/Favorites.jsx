@@ -10,7 +10,6 @@ const Favorites = () => {
                 Favorites
             </div>
             <div className='favorite-div-card-ctn'>
-
             </div>
         </div>
     </div>
