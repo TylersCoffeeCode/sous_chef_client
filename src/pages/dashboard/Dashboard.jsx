@@ -83,7 +83,7 @@ const Dashboard = ({ user, setUser }) => {
             </div>
             <div className='spacer' style={{ marginBottom: "1rem" }}></div>
             <div className='spacer2' style={{ boxShadow: "#474747 0px -12px -4px ", width: "100%", height: "0.1rem" }}></div>
-            <div className='trending-div-title'>Trending Now 🔥</div>
+            <div className='trending-div-title'>Recently Added 🔥</div>
             <div className='trending-div'>
                 <div className='createCardDiv'>
                     <div className='createCard' onClick={() => createRecipe()}>
