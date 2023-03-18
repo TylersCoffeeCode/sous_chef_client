@@ -338,3 +338,40 @@ html {
 .categoryCardText .cuisine:nth-child(2) {
     background-color: #53ddf2;
 }
+
+.categoriesDropdown {
+    border: 1px solid #53ddf2;
+    background-color: #ffffff;
+    margin-right: 1rem;
+    display: none;
+    padding-left: 10px;
+}
+
+.categoriesDropdownContent {
+    position: absolute;
+    display: none;
+    top: 75%;
+    right: 0;
+    background-color: white;
+    border: 2px solid #F26853;
+    border-radius: 10px;
+    z-index: 1;
+    margin-right: 2rem;
+    text-align: center;
+  }
+  
+  .show {
+    display: block;
+  }
+
+
+@media (max-width: 780px) {
+    .categoriesTabs {
+      display: none;
+    }
+    .categoriesDropdown {
+      display: block;
+    }
+
+  }
+

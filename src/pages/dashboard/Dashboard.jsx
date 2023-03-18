@@ -11,6 +11,18 @@ import CategoryCard from '../../components/CategoryCard'
 
 const Dashboard = ({ user, setUser }) => {
 
+
+    // function toggleDropdown() {
+    //     const dropdownContent = document.querySelector(".categoriesDropdownContent");
+    //     dropdownContent.classList.toggle("show");
+    // }
+
+        const [isOpen, setIsOpen] = useState(false);
+      
+        const toggleDropdown = () => {
+          setIsOpen(!isOpen);
+        }
+
     const [searchQuery, setSearchQuery] = useState('')
     const navigate = useNavigate()
 
@@ -105,6 +117,16 @@ const Dashboard = ({ user, setUser }) => {
             </div>
             <div className='categories'>
                 <h4>Categories |</h4>
+                <button className="categoriesDropdown" onClick={toggleDropdown} >Categories &#9660;</button>
+                <div className={`categoriesDropdownContent ${isOpen ? 'show' : ''}`}>
+                    <h5 className="cuisineTabs" onClick={() => tabChanger(1, 'American')}>American</h5>
+                    <h5 className="cuisineTabs" onClick={() => tabChanger(2, 'Mexican')}>Mexican</h5>
+                    <h5 className="cuisineTabs" onClick={() => tabChanger(3, 'Italian')}>Italian</h5>
+                    <h5 className="cuisineTabs" onClick={() => tabChanger(4, 'Asian')}>Asian</h5>
+                    <h5 className="cuisineTabs" onClick={() => tabChanger(5, 'Greek')}>Greek</h5>
+                    <h5 className="cuisineTabs" onClick={() => tabChanger(6, 'Brazilian')}>Brazilian</h5>
+                    <h5 className="cuisineTabs" onClick={() => tabChanger(7, 'African')}>African</h5>
+                </div>
                 <div className='categoriesTabs'>
                     <h5 className={toggleTabs === 1 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(1, 'American')}>American</h5>
                     <h5 className={toggleTabs === 2 ? "cuisineTabs activeCuisineTab" : "cuisineTabs"} onClick={() => tabChanger(2, 'Mexican')}>Mexican</h5>
